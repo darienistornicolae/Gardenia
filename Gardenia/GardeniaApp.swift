@@ -6,12 +6,24 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct GardeniaApp: App {
+    
+    @StateObject var authViewModel = AuthenticationManager()
+    init() {
+        FirebaseApp.configure()
+        
+//        GADMobileAds.sharedInstance().start(completionHandler: nil)
+//        Purchases.logLevel = .debug
+//        Purchases.configure(withAPIKey: "appl_jWKLVAnpkjXeJobUQlyOrzLRkkn")
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(authViewModel)
         }
     }
 }
