@@ -29,6 +29,7 @@ final class AuthenticationManager: ObservableObject {
         Task {
             do {
                 await fetchUser()   
+                
             }
         }
     }
@@ -98,51 +99,30 @@ final class AuthenticationManager: ObservableObject {
     
     func createGarden(gardenName: String, plants: [Datum]) async throws {
         guard let currentUser = currentUser else {
-            currentUser = nil
+            // Handle the case when the user is not authenticated or provide feedback to the user.
             return
         }
-       
+        
         let gardenId = UUID().uuidString
+        let garden = Garden(gardenId: gardenId, gardenName: gardenName, plants: Welcome(data: plants, to: 0, perPage: 0, currentPage: 0, from: 0, lastPage: 0, total: 0))
         
         do {
-            let garden = Garden(gardenId: gardenId, gardenName: gardenName, plants: Welcome(data: plants, to: 0, perPage: 0, currentPage: 0, from: 0, lastPage: 0, total: 0))
-            
             let jsonEncoder = JSONEncoder()
             let encodedGarden = try jsonEncoder.encode(garden)
-            guard let gardenData = try JSONSerialization.jsonObject(with: encodedGarden, options: []) as? [String: Any] else {
-                throw NSError(domain: "SerializationError", code: -1, userInfo: nil)
-            }
             
             let userGardensRef = dataBase.collection("users").document(currentUser.id).collection("Gardens")
-            try await userGardensRef.document(gardenId).setData(gardenData) // Save the garden data as a document in the subcollection
+            
+            // Save the garden data as a document with the gardenId as the document ID.
+            try userGardensRef.document(gardenId).setData(from: garden)
             
             self.currentGarden = garden
         } catch {
+            // Handle the error, log it, or provide user feedback.
             print("ERROR: Garden creation failed. \(error.localizedDescription)")
         }
     }
+
     
-    func fetchGarden(gardenId: String) async throws -> Garden? {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            throw NSError(domain: "AuthenticationError", code: -1, userInfo: nil)
-        }
-        
-        let userDocumentRef = dataBase.collection("users").document(uid)
-        let gardenDocumentRef = userDocumentRef.collection("Gardens").document(gardenId)
-        
-        do {
-            let gardenDocumentSnapshot = try await gardenDocumentRef.getDocument()
-            
-            if gardenDocumentSnapshot.exists, let data = gardenDocumentSnapshot.data() {
-                let garden = try Firestore.Decoder().decode(Garden.self, from: data)
-                return garden
-            } else {
-                return nil // Garden not found
-            }
-        } catch {
-            throw error
-        }
-    }
 
 
     func addPlantToGarden(gardenId: String, plant: Datum) async throws {

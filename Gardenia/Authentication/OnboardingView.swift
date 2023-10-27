@@ -22,7 +22,7 @@ struct OnboardingView: View {
             if viewModel.isOnboardingCompleted {
                 // Transition to the main content, which includes the TabView
                 TabView {
-                    GardenView()
+                    GardenListView()
                         .tabItem {
                             Image(systemName: "camera.macro")
                             Text("Garden")

@@ -69,6 +69,16 @@ struct Datum: Codable {
         case cycle, watering
         case defaultImage = "default_image"
     }
+    init(id: Int, commonName: String, scientificName: [String], otherName: [String], cycle: Cycle, watering: Watering, defaultImage: DefaultImage? = nil) {
+        self.id = id
+        self.commonName = commonName
+        self.scientificName = scientificName
+        self.otherName = otherName
+        self.cycle = cycle
+        self.watering = watering
+        self.defaultImage = defaultImage
+    }
+
     
     init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)

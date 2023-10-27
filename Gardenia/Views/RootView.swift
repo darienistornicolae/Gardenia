@@ -25,7 +25,7 @@ struct RootView: View {
                             .transition(trasition)
                     } else {
                         TabView {
-                            GardenView()
+                            GardenListView()
                                 .tabItem {
                                     Image(systemName: "camera.macro")
                                     Text("Garden")

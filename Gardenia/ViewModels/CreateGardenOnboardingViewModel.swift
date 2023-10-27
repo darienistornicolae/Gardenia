@@ -12,4 +12,3 @@ class CreateGardenOnboardingViewModel: ObservableObject {
     @Published var gardenId: String = ""
     
 }
-//dfg
