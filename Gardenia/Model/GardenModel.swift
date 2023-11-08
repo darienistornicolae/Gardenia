@@ -13,15 +13,12 @@ struct Garden: Codable {
     let gardenName: String
     var plants: PlantsModel
     
-    
-    
 }
 
 // MARK: - Datum
 struct PlantsModel: Codable {
     var data: [Datum]
     var total: Int
-    
     
 }
 
@@ -32,7 +29,7 @@ struct Datum: Codable, Identifiable {
     var scientificName, otherName: [String]
     var cycle: Cycle
     var watering: Watering
-    //  var sunlight: [String]
+    var sunlight: Sunlight
     var defaultImage: DefaultImage?
     
     enum CodingKeys: String, CodingKey {
@@ -40,16 +37,17 @@ struct Datum: Codable, Identifiable {
         case commonName = "common_name"
         case scientificName = "scientific_name"
         case otherName = "other_name"
-        case cycle, watering
+        case cycle, watering, sunlight
         case defaultImage = "default_image"
     }
-    init(id: Int, commonName: String, scientificName: [String], otherName: [String], cycle: Cycle, watering: Watering, defaultImage: DefaultImage? = nil) {
+    init(id: Int, commonName: String, scientificName: [String], otherName: [String], cycle: Cycle, watering: Watering,sunlight: Sunlight, defaultImage: DefaultImage? = nil) {
         self.id = id
         self.commonName = commonName
         self.scientificName = scientificName
         self.otherName = otherName
         self.cycle = cycle
         self.watering = watering
+        self.sunlight = sunlight
         self.defaultImage = defaultImage
     }
     
@@ -60,17 +58,9 @@ struct Datum: Codable, Identifiable {
         commonName = try values.decode(String.self, forKey: .commonName)
         scientificName = try values.decode([String].self, forKey: .scientificName)
         otherName = try values.decode([String].self, forKey: .otherName)
-        
-        // try to decode `cycle`, if fails, set it to `.perennial`
-        cycle = (try? values.decode(Cycle.self, forKey: .cycle)) ?? .perennial
-        
-        // try to decode `watering`, if fails, set it to `.other`
+        cycle = (try? values.decode(Cycle.self, forKey: .cycle)) ?? .none
         watering = (try? values.decode(Watering.self, forKey: .watering)) ?? .none
-        
-        // try to decode `sunlight`, if fails, set it to an empty array
-        //  sunlight = (try? values.decode([Sunlight].self, forKey: .sunlight)) ?? [.filteredShade]
-        
-        // try to decode `defaultImage`, if fails, set it to `nil`
+        sunlight = (try? values.decode(Sunlight.self, forKey: .sunlight)) ?? .filteredShade
         defaultImage = try? values.decode(DefaultImage?.self, forKey: .defaultImage)
     }
 }
@@ -78,26 +68,20 @@ struct Datum: Codable, Identifiable {
 enum Cycle: String, Codable {
     case herbaceousPerennial = "Herbaceous Perennial"
     case perennial = "Perennial"
+    case bieannial = "Bieannial"
+    case biannual = "Biannual"
+    case annual = "Annual"
+    case none = "none"
 }
 
 // MARK: - DefaultImage
 struct DefaultImage: Codable {
     var license: Int
-    var licenseName: String
-    var licenseURL: String
-    var originalURL: String
-    var regularURL, mediumURL, smallURL, thumbnail: String?
+    var license_name: String
+    var license_url: String
+    var original_url: String
+    var regular_url, medium_url, small_url, thumbnail: String?
     
-    enum CodingKeys: String, CodingKey {
-        case license
-        case licenseName = "license_name"
-        case licenseURL = "license_url"
-        case originalURL = "original_url"
-        case regularURL = "regular_url"
-        case mediumURL = "medium_url"
-        case smallURL = "small_url"
-        case thumbnail
-    }
 }
 
 enum Sunlight: String, Codable {
@@ -105,7 +89,8 @@ enum Sunlight: String, Codable {
     case fullSun = "full sun"
     case partShade = "part shade"
     case partSunPartShade = "part sun/part shade"
-    case sunlightFullSun = "Full sun"
+    case sunlightFullSun = "Sunlight Full sun"
+    case none = "none"
 }
 
 enum Watering: String, Codable {

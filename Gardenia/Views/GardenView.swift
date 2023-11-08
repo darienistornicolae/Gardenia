@@ -13,7 +13,7 @@ class GardenViewModel: ObservableObject {
      func loadImages(for plants: [Datum]) {
         for plant in plants {
             Task {
-                guard let imageURL = plant.defaultImage?.regularURL, let url = URL(string: imageURL) else { return }
+                guard let imageURL = plant.defaultImage?.regular_url, let url = URL(string: imageURL) else { return }
                 if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self.images[plant.id] = image
@@ -34,7 +34,7 @@ struct GardenView: View {
             List(garden.plants.data, id: \.id) { plant in
                 NavigationLink {
                     
-                    PlantView(plant: Datum(id: plant.id, commonName: plant.commonName, scientificName: plant.scientificName, otherName: plant.otherName, cycle: plant.cycle, watering: plant.watering))
+                    PlantView(plant: Datum(id: plant.id, commonName: plant.commonName, scientificName: plant.scientificName, otherName: plant.otherName, cycle: plant.cycle, watering: plant.watering, sunlight: plant.sunlight))
                 } label: {
                     HStack {
                         if let image = viewModel.images[plant.id] {

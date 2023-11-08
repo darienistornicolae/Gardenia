@@ -26,8 +26,10 @@ struct PlantView: View {
                     ProgressView()
                 }
                 cardView
+                watering
                 Spacer()
             }
+            
             
         }
         .navigationTitle(plant.commonName)
@@ -39,13 +41,13 @@ struct PlantView: View {
     
 }
 #Preview {
-    PlantView(plant: Datum(id: 1, commonName: "Rose", scientificName: ["Black Rose"], otherName: ["Bleah, Crazi"], cycle: Cycle.herbaceousPerennial, watering: Watering.average))
+    PlantView(plant: Datum(id: 1, commonName: "Rose", scientificName: ["Black Rose"], otherName: ["Bleah, Crazi"], cycle: Cycle.herbaceousPerennial, watering: Watering.average, sunlight: Sunlight.fullSun))
 }
 
 fileprivate extension PlantView {
     var cardView: some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 
                 Text("Common Name: \(plant.commonName)")
                 Text("Other Name: \(plant.otherName.first ?? "No other name")")
@@ -61,8 +63,19 @@ fileprivate extension PlantView {
     }
     
     var watering: some View {
-        VStack{
-            
+        HStack {
+            VStack(alignment: .leading) {
+                
+                Text("Watering frequency: \(plant.watering.rawValue)")
+                Text("Cycle type: \(plant.cycle.rawValue)")
+                Text("Type of light: \(plant.sunlight.rawValue)")
+            }
+            .multilineTextAlignment(.leading)
+            .padding(5)
         }
+        .padding(.all, 8) // Add padding to the HStack
+        .background(Color(.systemBackground))
+        .cornerRadius(10)
+        .shadow(color: Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
     }
 }
