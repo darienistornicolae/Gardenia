@@ -16,9 +16,9 @@ class AddPlantOnboardingViewModel: ObservableObject {
     private var apiManager = APICall()
 
     func search(query: String) {
-        apiManager.performSearch(query: query) { [self] fetchedPlants in
-            self.plants = fetchedPlants
-            self.loadImages(for: fetchedPlants)
+        apiManager.performSearch(query: query) { [weak self] fetchedPlants in
+            self?.plants = fetchedPlants
+            self?.loadImages(for: fetchedPlants)
         }
     }
     

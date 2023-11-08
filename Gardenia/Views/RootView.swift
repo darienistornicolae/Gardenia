@@ -24,19 +24,7 @@ struct RootView: View {
                         OnboardingView()
                             .transition(trasition)
                     } else {
-                        TabView {
-                            GardenListView()
-                                .tabItem {
-                                    Image(systemName: "camera.macro")
-                                    Text("Garden")
-                                }
-
-                            ProfileView()
-                                .tabItem {
-                                    Image(systemName: "person.fill")
-                                    Text("Profile")
-                                }
-                        }
+                        HomeScreenView()
                         .transition(trasition)
                     }
                 }

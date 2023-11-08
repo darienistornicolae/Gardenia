@@ -35,11 +35,12 @@ struct SignUpView: View {
                 }
                 VStack(spacing: -5) {
                     Spacer()
-                    Text("Welcome")
+                    Text("Get started, create an account!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.bottom)
                         .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                     
                     InputView(text: $viewModel.email, placeholder: "Email")
                         .autocapitalization(.none)

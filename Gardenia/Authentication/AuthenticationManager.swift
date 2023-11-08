@@ -21,7 +21,7 @@ final class AuthenticationManager: ObservableObject {
     @Published var currentUser: UserModel?
     @Published var currentGarden: Garden?
     
-    private let dataBase = Firestore.firestore()
+    let dataBase = Firestore.firestore()
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -97,62 +97,6 @@ final class AuthenticationManager: ObservableObject {
     
     //MARK: Garden
     
-    func createGarden(gardenName: String, plants: [Datum]) async throws {
-             guard let currentUser = currentUser else {
-                 currentUser = nil
-                 return
-             }
-
-             let gardenId = UUID().uuidString
-
-             do {
-                 let garden = Garden(gardenId: gardenId, gardenName: gardenName, plants: Welcome(data: plants, to: 0, perPage: 0, currentPage: 0, from: 0, lastPage: 0, total: 0))
-
-                 let jsonEncoder = JSONEncoder()
-                 let encodedGarden = try jsonEncoder.encode(garden)
-                 guard let gardenData = try JSONSerialization.jsonObject(with: encodedGarden, options: []) as? [String: Any] else {
-                     throw NSError(domain: "SerializationError", code: -1, userInfo: nil)
-                 }
-
-                 let userGardensRef = dataBase.collection("users").document(currentUser.id).collection("Gardens")
-                 try await userGardensRef.document(gardenId).setData(gardenData) // Save the garden data as a document in the subcollection
-                 
-                 self.currentGarden = garden
-             } catch {
-                 print("ERROR: Garden creation failed. \(error.localizedDescription)")
-             }
-         }
-
     
-
-
-    func addPlantToGarden(gardenId: String, plant: Datum) async throws {
-        guard let currentUser = currentUser else {
-            return
-        }
-
-        let userGardensRef = Firestore.firestore().collection("users").document(currentUser.id).collection("Gardens")
-        let gardenDocument = userGardensRef.document(gardenId)
-
-        // Fetch the current garden document
-        let gardenDocumentSnapshot = try await gardenDocument.getDocument()
-
-        // Decode it to a Garden if it exists, otherwise create a new one
-        var garden: Garden
-        if let existingGarden = try? gardenDocumentSnapshot.data(as: Garden.self) {
-            garden = existingGarden
-        } else {
-            garden = Garden(gardenId: gardenId, gardenName: "New Garden", plants: Welcome(data: [], to: 0, perPage: 0, currentPage: 0, from: 0, lastPage: 0, total: 0))
-        }
-
-        // Add the new plant to the garden's plants
-        garden.plants.data.append(plant)
-
-        // Update the garden document with the new data
-        try gardenDocument.setData(from: garden)
-
-        // Fetch the updated garden
-        self.currentGarden = garden
-    }
 
 }

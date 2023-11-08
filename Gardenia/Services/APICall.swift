@@ -33,7 +33,7 @@ class APICall: ObservableObject {
             guard let url = URL(string: urlString) else { return [] }
             
             let (data, _) = try await URLSession.shared.data(from: url)
-            let decodedData = try JSONDecoder().decode(Welcome.self, from: data)
+            let decodedData = try JSONDecoder().decode(PlantsModel.self, from: data)
             return decodedData.data
         } catch {
             print("Error: \(error)")

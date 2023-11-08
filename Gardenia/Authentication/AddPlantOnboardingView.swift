@@ -49,10 +49,10 @@ struct AddPlantOnboardingView: View {
                         VStack {
                             searchBar
                             
-                            List(viewModel.plants, id:\.id) {plant in
+                            List(viewModel.plants, id:\.id) { plant in
                                 Button(action: {
                                     Task {
-                                        try? await garden.addPlantToGarden(gardenId: garden.currentGarden?.gardenId ?? "", plant: plant)
+                                        try? await garden.addPlantToGarden(gardenId: garden.currentGarden?.gardenId ?? "", plant: plant, isPlantAdded: true)
                                         showAlert = true
                                         addedPlantName = plant.commonName
                                     }

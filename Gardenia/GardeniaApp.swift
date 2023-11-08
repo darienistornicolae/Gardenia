@@ -12,6 +12,7 @@ import Firebase
 struct GardeniaApp: App {
     
     @StateObject var authViewModel = AuthenticationManager()
+    
     init() {
         FirebaseApp.configure()
         

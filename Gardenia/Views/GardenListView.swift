@@ -12,19 +12,26 @@ import FirebaseAuth
 struct GardenListView: View {
     
     @StateObject var viewModel = GardenListViewModel()
+    @StateObject var userManager = AuthenticationManager()
     var body: some View {
         NavigationView{
             VStack {
                 List(viewModel.garden, id: \.gardenId) { garden in
                     //Text(garden.gardenName)
-                    NavigationLink(garden.gardenName, destination: {
+//                    NavigationLink(garden.gardenName, destination: {
+//                        GardenView(garden: garden)
+//                    })
+                    NavigationLink {
                         GardenView(garden: garden)
-                    })
+                    } label: {
+                        GardenCardView(garden: garden)
+                    }
+
                     
                 }
                 
             }
-            .navigationTitle("Hello")
+            .navigationTitle("\(userManager.currentUser?.fullName ?? "Gardens")'s Gardens")
             .onAppear {
                 if let userId = Auth.auth().currentUser?.uid  {
                     self.viewModel.fetchGarden(forUserID: userId)

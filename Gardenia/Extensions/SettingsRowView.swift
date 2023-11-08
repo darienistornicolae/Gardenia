@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SettingsRowView: View {
-    
     let imageName: String
     let title: String
     let tintColor: Color
+    let actionToggle: Binding<Bool>?
     
     var body: some View {
         HStack(spacing: 12) {
@@ -23,12 +23,23 @@ struct SettingsRowView: View {
             Text(title)
                 .font(.headline)
             
+            if let actionToggle = actionToggle {
+                Toggle(isOn: actionToggle, label: {
+                    
+                })
+            }
         }
     }
 }
 
 struct SettingsRowView_Previews: PreviewProvider {
+    @State static var sampleToggle = true
+    
     static var previews: some View {
-        SettingsRowView(imageName: "gearshape", title: "something", tintColor: .blue)
+        Group {
+            SettingsRowView(imageName: "gearshape", title: "With Toggle", tintColor: .blue, actionToggle: $sampleToggle)
+            SettingsRowView(imageName: "gearshape", title: "Without Toggle", tintColor: .blue, actionToggle: nil)
+        }
+        .previewLayout(.sizeThatFits)
     }
 }
