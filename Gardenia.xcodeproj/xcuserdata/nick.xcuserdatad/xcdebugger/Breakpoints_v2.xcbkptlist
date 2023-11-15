@@ -3,4 +3,85 @@
    uuid = "FEA79C36-5B72-402A-9470-BB20545AB8B5"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2962E539-209C-4DA8-8C9E-F2F29B8133F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gardenia/Services/APICall.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "fetchPlantDetailsData(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2948DBC9-2D00-473B-A38A-4458CC26DD30"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gardenia/Services/APICall.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "fetchPlantDetailsData(id:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2948DBC9-2D00-473B-A38A-4458CC26DD30 - b649ab9686dfd37c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Gardenia.APICall.fetchPlantDetailsData(id: Swift.Int) async throws -&gt; Gardenia.PlantDetailsModel"
+                  moduleName = "Gardenia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nick/Desktop/Gardenia/Gardenia/Services/APICall.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1956">
+               </Location>
+               <Location
+                  uuid = "2948DBC9-2D00-473B-A38A-4458CC26DD30 - b649ab9686dfd37c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Gardenia.APICall.fetchPlantDetailsData(id: Swift.Int) async throws -&gt; Gardenia.PlantDetailsModel"
+                  moduleName = "Gardenia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nick/Desktop/Gardenia/Gardenia/Services/APICall.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1940">
+               </Location>
+               <Location
+                  uuid = "2948DBC9-2D00-473B-A38A-4458CC26DD30 - b649ab9686dfd37c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Gardenia.APICall.fetchPlantDetailsData(id: Swift.Int) async throws -&gt; Gardenia.PlantDetailsModel"
+                  moduleName = "Gardenia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nick/Desktop/Gardenia/Gardenia/Services/APICall.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1924">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

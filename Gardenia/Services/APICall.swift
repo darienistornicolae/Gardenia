@@ -24,9 +24,10 @@ class Debouncer {
 class APICall: ObservableObject {
     
     private var debouncer = Debouncer()
+    private let apiKey: String = "sk-SWhc64a73409f079d1492"
     
     func fetchData(query: String) async -> [Datum] {
-        let baseURL = "https://perenual.com/api/species-list?page=1&key=sk-SWhc64a73409f079d1492"
+        let baseURL = "https://perenual.com/api/species-list?page=1&key=\(apiKey)"
         let urlString = baseURL + "&q=" + URLEncode(query)
         
         do {
@@ -53,6 +54,33 @@ class APICall: ObservableObject {
     func URLEncode(_ string: String) -> String {
         return string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
+    
+    enum PlantDetailsError: Error {
+        case invalidURL
+        case networkError(Error)
+        case decodingError(Error)
+    }
+
+    func fetchPlantDetailsData(id: Int) async throws -> PlantDetailsModel {
+        let baseURL = "https://perenual.com/api/species/details/\(id)?key=\(apiKey)"
+        
+        guard let url = URL(string: baseURL) else {
+            throw PlantDetailsError.invalidURL
+        }
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let decodedData = try JSONDecoder().decode(PlantDetailsModel.self, from: data)
+            print(decodedData)
+            return decodedData
+            
+        } catch let networkError as NSError {
+            throw PlantDetailsError.networkError(networkError)
+        } catch {
+            throw PlantDetailsError.decodingError(error)
+        }
+    }
+
 }
 
 

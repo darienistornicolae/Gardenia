@@ -11,4 +11,6 @@ import SwiftUI
 extension Color {
     static let buttonColor = Color("buttonColor")
     static let iconColor = Color("iconColor")
+    static let darkModeColor = Color("darkModeColor")
+    static let cardDetailView = Color("cardDetailsView")
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011D22FB2B03C03700E30231 /* PlantDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011D22FA2B03C03700E30231 /* PlantDetailsModel.swift */; };
 		0127CFF12AF7D1E600D86E8E /* GardenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127CFF02AF7D1E600D86E8E /* GardenModel.swift */; };
 		0127CFF32AF7D30000D86E8E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0127CFF22AF7D30000D86E8E /* FirebaseAnalytics */; };
 		0127CFF52AF7D30000D86E8E /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 0127CFF42AF7D30000D86E8E /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -89,6 +90,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011D22FA2B03C03700E30231 /* PlantDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsModel.swift; sourceTree = "<group>"; };
 		0127CFF02AF7D1E600D86E8E /* GardenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenModel.swift; sourceTree = "<group>"; };
 		0127D02C2AF7D70500D86E8E /* GardenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenManager.swift; sourceTree = "<group>"; };
 		013906A12AEBF17E00DDC21D /* GardenListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenListViewModel.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			children = (
 				014365182AEA8AB600CE6E0B /* UserModel.swift */,
 				0127CFF02AF7D1E600D86E8E /* GardenModel.swift */,
+				011D22FA2B03C03700E30231 /* PlantDetailsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				014365012AEA8A8A00CE6E0B /* ProfileView.swift in Sources */,
 				014365242AEA90AC00CE6E0B /* AddPlantOnboardingView.swift in Sources */,
 				014365262AEA90AC00CE6E0B /* OnboardingView.swift in Sources */,
+				011D22FB2B03C03700E30231 /* PlantDetailsModel.swift in Sources */,
 				014365192AEA8AB600CE6E0B /* UserModel.swift in Sources */,
 				014365142AEA8AAF00CE6E0B /* SettingsRowView.swift in Sources */,
 				014365032AEA8A8A00CE6E0B /* GardenListView.swift in Sources */,

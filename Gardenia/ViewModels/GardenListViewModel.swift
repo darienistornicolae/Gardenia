@@ -12,7 +12,7 @@ import Combine
 class GardenListViewModel: ObservableObject {
     @Published var garden = [Garden]()
     
-    let dataBase = Firestore.firestore()
+    private let dataBase = Firestore.firestore()
     
     func fetchGarden(forUserID userID: String) {
         let userGardensRef = dataBase.collection("users").document(userID).collection("Gardens")

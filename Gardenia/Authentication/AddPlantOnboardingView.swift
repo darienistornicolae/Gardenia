@@ -55,6 +55,7 @@ struct AddPlantOnboardingView: View {
                                         try? await garden.addPlantToGarden(gardenId: garden.currentGarden?.gardenId ?? "", plant: plant, isPlantAdded: true)
                                         showAlert = true
                                         addedPlantName = plant.commonName
+                                        
                                     }
                                 }) {
                                     HStack {
@@ -128,6 +129,7 @@ fileprivate extension AddPlantOnboardingView {
             TextField("Search plant...", text: $viewModel.searchPlantName)
                 .onChange(of: viewModel.searchPlantName) { newValue in
                     viewModel.search(query: newValue)
+                    
                 }
         }
         .frame(maxWidth: 350)
