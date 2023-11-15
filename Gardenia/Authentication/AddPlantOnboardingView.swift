@@ -65,7 +65,10 @@ struct AddPlantOnboardingView: View {
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 100, height: 100)
                                         } else {
-                                            ProgressView()
+                                            Image("plant")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 100, height: 100)
                                         }
 
                                         Text(plant.commonName)
