@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct PlantView: View {
-    
     let plant: Datum
-    let apiCalls = APICall()
+   
     @StateObject var viewModel = PlantViewModel()
     @Environment(\.colorScheme) var colorScheme
     
@@ -40,7 +39,9 @@ struct PlantView: View {
             }
             .navigationTitle(plant.scientificName.first ?? "A plant")
            // .navigationBarTitleDisplayMode(.inline)
-            
+            .onAppear {
+                viewModel.fetchPlantDetails(id: plant.id)
+            }
             
         }
     }

@@ -8,63 +8,63 @@
 import Foundation
 
 struct PlantDetailsModel: Codable {
-    let id: Int
-    let commonName: String
-    let scientificName: [String]
-    let otherName: [String]
-    let family: String?
-    let origin: [String?]
-    let type: String
-    let dimension: String
-    let dimensions: Dimensions
-    let cycle: String
-    let attracts: [String]
-    let propagation: [String]
-    let hardiness: Hardiness
-    let hardinessLocation: HardinessLocation
-    let watering: String
-    let depthWaterRequirement: DepthWaterRequirement
-    let volumeWaterRequirement: [String]
-    let wateringPeriod: String?
-    let wateringGeneralBenchmark: WateringGeneralBenchmark
-    let plantAnatomy: [PlantAnatomy]
-    let sunlight: [String]
-    let pruningMonth: [String]
-    let pruningCount: PruningCount
-    let seeds: Int
-    let maintenance: String?
-    let careGuides: String
-    let soil: [String]
-    let growthRate: String
-    let droughtTolerant: Bool
-    let saltTolerant: Bool
-    let thorny: Bool
-    let invasive: Bool
-    let tropical: Bool
-    let indoor: Bool
-    let careLevel: String?
-    let pestSusceptibility: [String]
-    let pestSusceptibilityapi: String
-    let flowers: Bool
-    let floweringSeason: String?
-    let flowerColor: String
-    let cones: Bool
-    let fruits: Bool
-    let edibleFruit: Bool
-    let edibleFruitTasteProfile: String
-    let fruitNutritionalValue: String
-    let fruitColor: [String]
-    let harvestSeason: String?
-    let leaf: Bool
-    let leafColor: [String]
-    let edibleLeaf: Bool
-    let cuisine: Bool
-    let medicinal: Bool
-    let poisonousToHumans: Int
-    let poisonousToPets: Int
-    let description: String
-    let defaultImage: DefaultPlantImage?
-    let otherImages: String
+    var id: Int
+    var commonName: String
+    var scientificName: [String]
+    var otherName: [String]
+    var family: String?
+    var origin: [String?]
+    var type: String
+    var dimension: String
+    var dimensions: Dimensions
+    var cycle: String
+    var attracts: [String]
+    var propagation: [String]
+    var hardiness: Hardiness
+    var hardinessLocation: HardinessLocation
+    var watering: String
+    var depthWaterRequirement: DepthWaterRequirement
+    var volumeWaterRequirement: [String]
+    var wateringPeriod: String?
+    var wateringGeneralBenchmark: WateringGeneralBenchmark
+    var plantAnatomy: [PlantAnatomy]
+    var sunlight: [String]
+    var pruningMonth: [String]
+    var pruningCount: PruningCount
+    var seeds: Int
+    var maintenance: String?
+    var careGuides: String
+    var soil: [String]
+    var growthRate: String
+    var droughtTolerant: Bool
+    var saltTolerant: Bool
+    var thorny: Bool
+    var invasive: Bool
+    var tropical: Bool
+    var indoor: Bool
+    var careLevel: String?
+    var pestSusceptibility: [String]
+    var pestSusceptibilityapi: String
+    var flowers: Bool
+    var floweringSeason: String?
+    var flowerColor: String
+    var cones: Bool
+    var fruits: Bool
+    var edibleFruit: Bool
+    var edibleFruitTasteProfile: String
+    var fruitNutritionalValue: String
+    var fruitColor: [String]
+    var harvestSeason: String?
+    var leaf: Bool
+    var leafColor: [String]
+    var edibleLeaf: Bool
+    var cuisine: Bool
+    var medicinal: Bool
+    var poisonousToHumans: Int
+    var poisonousToPets: Int
+    var description: String
+    var defaultImage: DefaultPlantImage?
+    var otherImages: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -126,88 +126,25 @@ struct PlantDetailsModel: Codable {
         case otherImages = "other_images"
     }
     
-    init(id: Int, commonName: String, scientificName: [String], otherName: [String], family: String?, origin: [String?], type: String, dimension: String, dimensions: Dimensions, cycle: String, attracts: [String], propagation: [String], hardiness: Hardiness, hardinessLocation: HardinessLocation, watering: String, depthWaterRequirement: DepthWaterRequirement, volumeWaterRequirement: [String], wateringPeriod: String?, wateringGeneralBenchmark: WateringGeneralBenchmark, plantAnatomy: [PlantAnatomy], sunlight: [String], pruningMonth: [String], pruningCount: PruningCount, seeds: Int, maintenance: String?, careGuides: String, soil: [String], growthRate: String, droughtTolerant: Bool, saltTolerant: Bool, thorny: Bool, invasive: Bool, tropical: Bool, indoor: Bool, careLevel: String?, pestSusceptibility: [String], pestSusceptibilityapi: String, flowers: Bool, floweringSeason: String?, flowerColor: String, cones: Bool, fruits: Bool, edibleFruit: Bool, edibleFruitTasteProfile: String, fruitNutritionalValue: String, fruitColor: [String], harvestSeason: String?, leaf: Bool, leafColor: [String], edibleLeaf: Bool, cuisine: Bool, medicinal: Bool, poisonousToHumans: Int, poisonousToPets: Int, description: String, defaultImage: DefaultPlantImage?, otherImages: String) {
-        self.id = id
-        self.commonName = commonName
-        self.scientificName = scientificName
-        self.otherName = otherName
-        self.family = family
-        self.origin = origin
-        self.type = type
-        self.dimension = dimension
-        self.dimensions = dimensions
-        self.cycle = cycle
-        self.attracts = attracts
-        self.propagation = propagation
-        self.hardiness = hardiness
-        self.hardinessLocation = hardinessLocation
-        self.watering = watering
-        self.depthWaterRequirement = depthWaterRequirement
-        self.volumeWaterRequirement = volumeWaterRequirement
-        self.wateringPeriod = wateringPeriod
-        self.wateringGeneralBenchmark = wateringGeneralBenchmark
-        self.plantAnatomy = plantAnatomy
-        self.sunlight = sunlight
-        self.pruningMonth = pruningMonth
-        self.pruningCount = pruningCount
-        self.seeds = seeds
-        self.maintenance = maintenance
-        self.careGuides = careGuides
-        self.soil = soil
-        self.growthRate = growthRate
-        self.droughtTolerant = droughtTolerant
-        self.saltTolerant = saltTolerant
-        self.thorny = thorny
-        self.invasive = invasive
-        self.tropical = tropical
-        self.indoor = indoor
-        self.careLevel = careLevel
-        self.pestSusceptibility = pestSusceptibility
-        self.pestSusceptibilityapi = pestSusceptibilityapi
-        self.flowers = flowers
-        self.floweringSeason = floweringSeason
-        self.flowerColor = flowerColor
-        self.cones = cones
-        self.fruits = fruits
-        self.edibleFruit = edibleFruit
-        self.edibleFruitTasteProfile = edibleFruitTasteProfile
-        self.fruitNutritionalValue = fruitNutritionalValue
-        self.fruitColor = fruitColor
-        self.harvestSeason = harvestSeason
-        self.leaf = leaf
-        self.leafColor = leafColor
-        self.edibleLeaf = edibleLeaf
-        self.cuisine = cuisine
-        self.medicinal = medicinal
-        self.poisonousToHumans = poisonousToHumans
-        self.poisonousToPets = poisonousToPets
-        self.description = description
-        self.defaultImage = defaultImage
-        self.otherImages = otherImages
-    }
+    
 }
 
 // MARK: - PlantAnatomy
 struct PlantAnatomy: Codable {
-    let part: String
-    let color: [String]
-
-    enum CodingKeys: String, CodingKey {
-        case part
-        case color
-    }
+    var part: String
+    var color: [String]
 }
 
 // MARK: - DefaultImage
 struct DefaultPlantImage: Codable {
-    let license: Int
-    let licenseName: String
-    let licenseurl: String
-    let originalurl: String
-    let regularurl: String
-    let mediumurl: String
-    let smallurl: String
-    let thumbnail: String
+    var license: Int
+    var licenseName: String
+    var licenseurl: String
+    var originalurl: String
+    var regularurl: String
+    var mediumurl: String
+    var smallurl: String
+    var thumbnail: String
 
     enum CodingKeys: String, CodingKey {
         case license = "license"
@@ -223,10 +160,10 @@ struct DefaultPlantImage: Codable {
 
 // MARK: - Dimensions
 struct Dimensions: Codable {
-    let type: String
-    let minValue: Int
-    let maxValue: Int
-    let unit: String
+    var type: String
+    var minValue: Int
+    var maxValue: Int
+    var unit: String
 
     enum CodingKeys: String, CodingKey {
         case type = "type"
@@ -238,19 +175,14 @@ struct Dimensions: Codable {
 
 // MARK: - Hardiness
 struct Hardiness: Codable {
-    let min: String
-    let max: String
-
-    enum CodingKeys: String, CodingKey {
-        case min = "min"
-        case max = "max"
-    }
+    var min: String
+    var max: String
 }
 
 // MARK: - HardinessLocation
 struct HardinessLocation: Codable {
-    let fullurl: String
-    let fullIframe: String
+    var fullurl: String
+    var fullIframe: String
 
     enum CodingKeys: String, CodingKey {
         case fullurl = "full_url"
@@ -259,8 +191,8 @@ struct HardinessLocation: Codable {
 }
 // MARK: - DepthWaterRequirement
 struct DepthWaterRequirement: Codable {
-    let unit: String
-    let value: String
+    var unit: String
+    var value: String
 
     enum CodingKeys: String, CodingKey {
         case unit
@@ -269,24 +201,15 @@ struct DepthWaterRequirement: Codable {
 }
 
 struct PruningCount: Codable {
-    let amount: Int
-    let interval: String
+    var amount: Int
+    var interval: String
 
-    enum CodingKeys: String, CodingKey {
-        case amount
-        case interval
-    }
 }
 
 // MARK: - WateringGeneralBenchmark
 struct WateringGeneralBenchmark: Codable {
-    let value: String
-    let unit: String
-
-    enum CodingKeys: String, CodingKey {
-        case value = "value"
-        case unit = "unit"
-    }
+    var value: String
+    var unit: String
 }
 
 
@@ -341,7 +264,7 @@ extension PlantDetailsModel {
             edibleFruitTasteProfile: "Mock Taste Profile",
             fruitNutritionalValue: "Mock Nutritional Value",
             fruitColor: [],
-            harvestSeason: nil,
+            harvestSeason: "nil",
             leaf: true,
             leafColor: ["Mock Leaf Color"],
             edibleLeaf: false,
