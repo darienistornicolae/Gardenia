@@ -30,20 +30,15 @@ class PlantViewModel: ObservableObject {
 //            }
 //        }
 //    }
-    enum PlantDetailsError: Error {
-        case invalidURL
-        case networkError(Error)
-        case decodingError(Error)
-    }
+   
 
     func fetchPlantDetails(id: Int) {
         Task {
             do {
-                // Use try await instead of try? await to handle errors
+               
                 let call = try await fetchPlant.fetchPlantDetailsData(id: id)
                 
             } catch {
-                // Handle other errors
                 print("Problems getting data: \(error)")
             }
         }
