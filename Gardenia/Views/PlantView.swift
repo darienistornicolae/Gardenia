@@ -37,8 +37,8 @@ struct PlantView: View {
                 }
                 
             }
-            .navigationTitle(plant.scientificName.first ?? "A plant")
-           // .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(plant.commonName)
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 viewModel.fetchPlantDetails(id: plant.id)
             }
@@ -68,9 +68,9 @@ fileprivate extension PlantView {
                     }
                     .padding(.bottom)
                 }
-                Text("Common Name: \(plant.commonName)")
-                Text("Other Name: \(plant.otherName.first ?? "No other name")")
-                Text("Scientific Name: \(plant.scientificName.first ?? "No other name")")
+                Text("Common Name: \(viewModel.plantDetailsModel?.commonName ?? "No common name")")
+                Text("Other Name: \(viewModel.plantDetailsModel?.otherName.first ?? "No other name")")
+                Text("Scientific Name: \(viewModel.plantDetailsModel?.scientificName.first ?? "No other name")")
                 
             }
             .font(.headline)

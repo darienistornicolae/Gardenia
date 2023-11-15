@@ -23,14 +23,14 @@ struct PlantDetailsModel: Codable {
     var hardiness: Hardiness
     var hardinessLocation: HardinessLocation
     var watering: String
-    var depthWaterRequirement: DepthWaterRequirement
-    var volumeWaterRequirement: [String]
+//    var depthWaterRequirement: DepthWaterRequirement?
+//    var volumeWaterRequirement: VolumeWaterRequirement
     var wateringPeriod: String?
     var wateringGeneralBenchmark: WateringGeneralBenchmark
     var plantAnatomy: [PlantAnatomy]
     var sunlight: [String]
     var pruningMonth: [String]
-    var pruningCount: PruningCount
+    //var pruningCount: PruningCount
     var seeds: Int
     var maintenance: String?
     var careGuides: String
@@ -82,14 +82,14 @@ struct PlantDetailsModel: Codable {
         case hardiness = "hardiness"
         case hardinessLocation = "hardiness_location"
         case watering = "watering"
-        case depthWaterRequirement = "depth_water_requirement"
-        case volumeWaterRequirement = "volume_water_requirement"
+//        case depthWaterRequirement = "depth_water_requirement"
+//        case volumeWaterRequirement = "volume_water_requirement"
         case wateringPeriod = "watering_period"
         case wateringGeneralBenchmark = "watering_general_benchmark"
         case plantAnatomy = "plant_anatomy"
         case sunlight = "sunlight"
         case pruningMonth = "pruning_month"
-        case pruningCount = "pruning_count"
+     //   case pruningCount = "pruning_count"
         case seeds = "seeds"
         case maintenance = "maintenance"
         case careGuides = "care-guides"
@@ -157,7 +157,10 @@ struct DefaultPlantImage: Codable {
         case thumbnail = "thumbnail"
     }
 }
-
+struct VolumeWaterRequirement: Codable {
+    let unit: String
+    let value: String
+}
 // MARK: - Dimensions
 struct Dimensions: Codable {
     var type: String
@@ -215,75 +218,75 @@ struct WateringGeneralBenchmark: Codable {
 
 
 // MARK: MOCK
-extension PlantDetailsModel {
-    static func mock() -> PlantDetailsModel {
-        return PlantDetailsModel(
-            id: 1,
-            commonName: "Mock Plant",
-            scientificName: ["Scientificus Mockus"],
-            otherName: ["Alias1", "Alias2"],
-            family: nil,
-            origin: ["Mock Origin"],
-            type: "Mock Type",
-            dimension: "Mock Dimension",
-            dimensions: Dimensions(type: "Mock Type", minValue: 10, maxValue: 20, unit: "cm"),
-            cycle: "Mock Cycle",
-            attracts: [],
-            propagation: ["Mock Propagation"],
-            hardiness: Hardiness(min: "Mock Min", max: "Mock Max"),
-            hardinessLocation: HardinessLocation(fullurl: "Mock Full URL", fullIframe: "Mock Full Iframe"),
-            watering: "Mock Watering",
-            depthWaterRequirement: DepthWaterRequirement(unit: "", value: ""),
-            volumeWaterRequirement: [],
-            wateringPeriod: nil,
-            wateringGeneralBenchmark: WateringGeneralBenchmark(value: "Mock Value", unit: "Mock Unit"),
-            plantAnatomy: [],
-            sunlight: ["Mock Sunlight"],
-            pruningMonth: ["Mock Pruning Month"],
-            pruningCount: PruningCount(amount: 2, interval: ""),
-            seeds: 100,
-            maintenance: "",
-            careGuides: "Mock Care Guides",
-            soil: [],
-            growthRate: "Mock Growth Rate",
-            droughtTolerant: true,
-            saltTolerant: false,
-            thorny: false,
-            invasive: true,
-            tropical: true,
-            indoor: false,
-            careLevel: "Mock Care Level",
-            pestSusceptibility: [],
-            pestSusceptibilityapi: "Mock Pest Susceptibility",
-            flowers: true,
-            floweringSeason: nil,
-            flowerColor: "Mock Flower Color",
-            cones: false,
-            fruits: true,
-            edibleFruit: true,
-            edibleFruitTasteProfile: "Mock Taste Profile",
-            fruitNutritionalValue: "Mock Nutritional Value",
-            fruitColor: [],
-            harvestSeason: "nil",
-            leaf: true,
-            leafColor: ["Mock Leaf Color"],
-            edibleLeaf: false,
-            cuisine: false,
-            medicinal: true,
-            poisonousToHumans: 0,
-            poisonousToPets: 0,
-            description: "Mock Plant Description",
-            defaultImage: DefaultPlantImage(
-                license: 1,
-                licenseName: "Mock License",
-                licenseurl: "Mock License URL",
-                originalurl: "Mock Original URL",
-                regularurl: "Mock Regular URL",
-                mediumurl: "Mock Medium URL",
-                smallurl: "Mock Small URL",
-                thumbnail: "Mock Thumbnail"
-            ),
-            otherImages: "Mock Other Images"
-        )
-    }
-}
+//extension PlantDetailsModel {
+//    static func mock() -> PlantDetailsModel {
+//        return PlantDetailsModel(
+//            id: 1,
+//            commonName: "Mock Plant",
+//            scientificName: ["Scientificus Mockus"],
+//            otherName: ["Alias1", "Alias2"],
+//            family: nil,
+//            origin: ["Mock Origin"],
+//            type: "Mock Type",
+//            dimension: "Mock Dimension",
+//            dimensions: Dimensions(type: "Mock Type", minValue: 10, maxValue: 20, unit: "cm"),
+//            cycle: "Mock Cycle",
+//            attracts: [],
+//            propagation: ["Mock Propagation"],
+//            hardiness: Hardiness(min: "Mock Min", max: "Mock Max"),
+//            hardinessLocation: HardinessLocation(fullurl: "Mock Full URL", fullIframe: "Mock Full Iframe"),
+//            watering: "Mock Watering",
+//            depthWaterRequirement: [DepthWaterRequirement(unit: "", value: "")],
+//            volumeWaterRequirement: VolumeWaterRequirement(unit: "", value: ""),
+//            wateringPeriod: nil,
+//            wateringGeneralBenchmark: WateringGeneralBenchmark(value: "Mock Value", unit: "Mock Unit"),
+//            plantAnatomy: [],
+//            sunlight: ["Mock Sunlight"],
+//            pruningMonth: ["Mock Pruning Month"],
+//            pruningCount: [PruningCount(amount: 2, interval: "")],
+//            seeds: 100,
+//            maintenance: "",
+//            careGuides: "Mock Care Guides",
+//            soil: [],
+//            growthRate: "Mock Growth Rate",
+//            droughtTolerant: true,
+//            saltTolerant: false,
+//            thorny: false,
+//            invasive: true,
+//            tropical: true,
+//            indoor: false,
+//            careLevel: "Mock Care Level",
+//            pestSusceptibility: [],
+//            pestSusceptibilityapi: "Mock Pest Susceptibility",
+//            flowers: true,
+//            floweringSeason: nil,
+//            flowerColor: "Mock Flower Color",
+//            cones: false,
+//            fruits: true,
+//            edibleFruit: true,
+//            edibleFruitTasteProfile: "Mock Taste Profile",
+//            fruitNutritionalValue: "Mock Nutritional Value",
+//            fruitColor: [],
+//            harvestSeason: "nil",
+//            leaf: true,
+//            leafColor: ["Mock Leaf Color"],
+//            edibleLeaf: false,
+//            cuisine: false,
+//            medicinal: true,
+//            poisonousToHumans: 0,
+//            poisonousToPets: 0,
+//            description: "Mock Plant Description",
+//            defaultImage: DefaultPlantImage(
+//                license: 1,
+//                licenseName: "Mock License",
+//                licenseurl: "Mock License URL",
+//                originalurl: "Mock Original URL",
+//                regularurl: "Mock Regular URL",
+//                mediumurl: "Mock Medium URL",
+//                smallurl: "Mock Small URL",
+//                thumbnail: "Mock Thumbnail"
+//            ),
+//            otherImages: "Mock Other Images"
+//        )
+//    }
+//}
