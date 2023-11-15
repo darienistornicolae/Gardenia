@@ -26,8 +26,6 @@ struct GardenListView: View {
                     } label: {
                         GardenCardView(garden: garden)
                     }
-
-                    
                 }
                 
             }

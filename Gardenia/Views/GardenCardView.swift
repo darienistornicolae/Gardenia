@@ -14,16 +14,17 @@ struct GardenCardView: View {
         HStack {
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(garden.gardenName)
+                Text("garden.gardenName")
                     .font(.headline)
                     .foregroundColor(Color.primary)
                 
                 HStack {
                     Image(systemName: "leaf.fill")
                         .foregroundColor(.green)
-                    Text("\(garden.plants.total) plants")
+                    Text("22 plants")
                         .font(.subheadline)
                         .foregroundColor(Color.secondary)
+                    
                 }
             }
             .padding(.leading, 8) // Add padding to the VStack
@@ -31,7 +32,7 @@ struct GardenCardView: View {
             Spacer()
         }
         .padding(.all, 8) // Add padding to the HStack
-        .background(Color(.systemBackground))
+        //.background(Color(.systemBackground))
         .cornerRadius(10)
         .shadow(color: Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
     }

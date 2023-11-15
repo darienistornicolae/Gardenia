@@ -20,11 +20,19 @@ struct PlantView: View {
                         Color.darkModeColor.ignoresSafeArea(.all)
                     }
                     VStack {
-                        Image(ImageResource.plant)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width:200,height: 200)
-                            .cornerRadius(10)
+                        if let image = viewModel.plantImage[plant.id] {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .cornerRadius(10)
+                                .frame(width: 200, height: 200)
+                        } else {
+                            Image("plant")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .cornerRadius(10)
+                                .frame(width: 200, height: 200)
+                        }
                         Divider()
                             .padding()
                         VStack(alignment: .leading) {
@@ -41,6 +49,7 @@ struct PlantView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 viewModel.fetchPlantDetails(id: plant.id)
+                viewModel.loadImages(for: [plant])
             }
             
         }
@@ -99,9 +108,9 @@ fileprivate extension PlantView {
                     }
                 }
                 .padding(.bottom)
-                Text("Watering frequency: \(plant.watering.rawValue)")
-                Text("Cycle type: \(plant.cycle.rawValue)")
-                Text("Type of light: \(plant.sunlight.rawValue)")
+                Text("Watering frequency: \(viewModel.plantDetailsModel?.watering ?? "No Data")")
+                Text("Cycle type: \(viewModel.plantDetailsModel?.cycle ?? "No Data")")
+                Text("Type of light: \(viewModel.plantDetailsModel?.sunlight.first ?? "No Data")")
             }
             .font(.headline)
             .multilineTextAlignment(.leading)

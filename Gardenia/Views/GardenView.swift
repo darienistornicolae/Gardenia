@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-class GardenViewModel: ObservableObject {
-    @Published var images: [Int: UIImage] = [:]
-    
-     func loadImages(for plants: [Datum]) {
-        for plant in plants {
-            Task {
-                guard let imageURL = plant.defaultImage?.regular_url, let url = URL(string: imageURL) else { return }
-                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.images[plant.id] = image
-                    }
-                }
-            }
-        }
-    }
-}
 
 struct GardenView: View {
     let garden: Garden
@@ -44,7 +28,11 @@ struct GardenView: View {
                                 .cornerRadius(10)
                                 .frame(width: 110, height: 110)
                         } else {
-                            ProgressView()
+                            Image("plant")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(10)
+                                .frame(width: 110, height: 110)
                         }
                         VStack(alignment: .leading) {
                             Text(plant.commonName)

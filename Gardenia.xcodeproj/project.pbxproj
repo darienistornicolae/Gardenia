@@ -83,6 +83,7 @@
 		016182CE2AE97191003E01C4 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 016182CD2AE97191003E01C4 /* FirebaseRemoteConfigSwift */; };
 		016182D02AE97191003E01C4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 016182CF2AE97191003E01C4 /* FirebaseStorage */; };
 		016182D22AE97191003E01C4 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 016182D12AE97191003E01C4 /* FirebaseStorageCombine-Community */; };
+		01743B8F2B05602D00693BA6 /* GardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01743B8E2B05602D00693BA6 /* GardenViewModel.swift */; };
 		017F81462AFBC3DF0034062B /* PlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F81452AFBC3DF0034062B /* PlantView.swift */; };
 		017F81482AFBC8AF0034062B /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F81472AFBC8AF0034062B /* PlantViewModel.swift */; };
 		01C312A72AEC0BD40073FD87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01C312A62AEC0BD40073FD87 /* GoogleService-Info.plist */; };
@@ -118,6 +119,7 @@
 		016182902AE970D4003E01C4 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		016182922AE970D5003E01C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		016182952AE970D5003E01C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		01743B8E2B05602D00693BA6 /* GardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenViewModel.swift; sourceTree = "<group>"; };
 		017F81452AFBC3DF0034062B /* PlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantView.swift; sourceTree = "<group>"; };
 		017F81472AFBC8AF0034062B /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewModel.swift; sourceTree = "<group>"; };
 		01C312A62AEC0BD40073FD87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				014365082AEA8A9900CE6E0B /* AddPlantOnboardingViewModel.swift */,
 				013906A12AEBF17E00DDC21D /* GardenListViewModel.swift */,
 				017F81472AFBC8AF0034062B /* PlantViewModel.swift */,
+				01743B8E2B05602D00693BA6 /* GardenViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				014365222AEA90AC00CE6E0B /* AuthenticationManager.swift in Sources */,
 				0143650B2AEA8A9900CE6E0B /* CreateGardenOnboardingViewModel.swift in Sources */,
 				0143650E2AEA8A9900CE6E0B /* AddPlantOnboardingViewModel.swift in Sources */,
+				01743B8F2B05602D00693BA6 /* GardenViewModel.swift in Sources */,
 				014365252AEA90AC00CE6E0B /* SignUpView.swift in Sources */,
 				014365212AEA90AC00CE6E0B /* LoginView.swift in Sources */,
 				0143650F2AEA8A9900CE6E0B /* APICall.swift in Sources */,

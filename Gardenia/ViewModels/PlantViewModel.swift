@@ -9,27 +9,24 @@ import Foundation
 import SwiftUI
 
 class PlantViewModel: ObservableObject {
+    
     @Published var plantDetailsModel: PlantDetailsModel?
     @Published var plantImage: [Int: UIImage] = [:]
     private let fetchPlant = APICall()
     
     
-    //    func loadImages(for plants: PlantDetailsModel) {
-    //        Task {
-    //            if let imageURL = plants.defaultImage?.regularurl, let url = URL(string: imageURL) {
-    //                do {
-    //                    let data = try Data(contentsOf: url)
-    //                    if let image = UIImage(data: data) {
-    //                        DispatchQueue.main.async {
-    //                            self.plantImage[plants.id] = image
-    //                        }
-    //                    }
-    //                } catch {
-    //                    print("Error loading image data: \(error)")
-    //                }
-    //            }
-    //        }
-    //    }
+    func loadImages(for plants: [Datum]) {
+       for plant in plants {
+           Task {
+               guard let imageURL = plant.defaultImage?.regular_url, let url = URL(string: imageURL) else { return }
+               if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                   DispatchQueue.main.async {
+                       self.plantImage[plant.id] = image
+                   }
+               }
+           }
+       }
+   }
     
     
     func fetchPlantDetails(id: Int) {

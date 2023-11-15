@@ -23,14 +23,14 @@ struct PlantDetailsModel: Codable {
     var hardiness: Hardiness
     var hardinessLocation: HardinessLocation
     var watering: String
-//    var depthWaterRequirement: DepthWaterRequirement?
+//    var depthWaterRequirement: [DepthWaterRequirement]
 //    var volumeWaterRequirement: VolumeWaterRequirement
     var wateringPeriod: String?
     var wateringGeneralBenchmark: WateringGeneralBenchmark
     var plantAnatomy: [PlantAnatomy]
     var sunlight: [String]
     var pruningMonth: [String]
-    //var pruningCount: PruningCount
+//    var pruningCount: PruningCount
     var seeds: Int
     var maintenance: String?
     var careGuides: String
@@ -89,7 +89,7 @@ struct PlantDetailsModel: Codable {
         case plantAnatomy = "plant_anatomy"
         case sunlight = "sunlight"
         case pruningMonth = "pruning_month"
-     //   case pruningCount = "pruning_count"
+//        case pruningCount = "pruning_count"
         case seeds = "seeds"
         case maintenance = "maintenance"
         case careGuides = "care-guides"
@@ -125,6 +125,7 @@ struct PlantDetailsModel: Codable {
         case defaultImage = "default_image"
         case otherImages = "other_images"
     }
+    
     
     
 }
@@ -201,6 +202,7 @@ struct DepthWaterRequirement: Codable {
         case unit
         case value
     }
+    
 }
 
 struct PruningCount: Codable {
