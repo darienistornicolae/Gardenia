@@ -44,9 +44,9 @@ struct GardenView: View {
                         viewModel.loadImages(for: [plant])
                     }
                     .padding(.all, 8) // Add padding to the HStack
-                    .background(Color(.systemBackground))
+                    
                     .cornerRadius(10)
-                    //.shadow(color: Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
+                    .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
                 }
                 
             }

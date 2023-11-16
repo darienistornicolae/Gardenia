@@ -9,8 +9,7 @@ import Foundation
 import Firebase
 
 
-extension AuthenticationManager {
-    
+ extension AuthenticationManager {
     
     func createGarden(gardenName: String, plants: [Datum]) async throws {
         guard let currentUser = currentUser else {
@@ -77,6 +76,56 @@ extension AuthenticationManager {
         self.currentGarden = garden
     }
     
-    func deleteGarden() async throws {}
-    func deletePlant() async throws {}
+    func deleteGarden() async throws {
+            guard let currentUser = currentUser, let currentGarden = currentGarden else {
+                return
+            }
+
+            let userGardensRef = Firestore.firestore().collection("users").document(currentUser.id).collection("Gardens")
+            let gardenDocument = userGardensRef.document(currentGarden.gardenId)
+
+            do {
+                try await gardenDocument.delete()
+                self.currentGarden = nil
+            } catch {
+                throw error
+            }
+        }
+    
+    func deletePlant(gardenId: String, plantId: Int) async throws {
+            guard let currentUser = currentUser else {
+                return
+            }
+
+            let userGardensRef = Firestore.firestore().collection("users").document(currentUser.id).collection("Gardens")
+            let gardenDocument = userGardensRef.document(gardenId)
+
+            do {
+                // Fetch the current garden document
+                let gardenDocumentSnapshot = try await gardenDocument.getDocument()
+
+                // Decode it to a Garden if it exists
+                var garden: Garden
+                if let existingGarden = try? gardenDocumentSnapshot.data(as: Garden.self) {
+                    garden = existingGarden
+                } else {
+                    throw NSError(domain: "GardenNotFoundError", code: -1, userInfo: nil)
+                }
+
+                // Remove the plant with the specified id
+                if let index = garden.plants.data.firstIndex(where: { $0.id == plantId }) {
+                    garden.plants.data.remove(at: index)
+                    garden.plants.total -= 1
+                } else {
+                    throw NSError(domain: "PlantNotFoundError", code: -1, userInfo: nil)
+                }
+
+                // Update the garden in Firestore
+                try gardenDocument.setData(from: garden)
+
+                self.currentGarden = garden
+            } catch {
+                throw error
+            }
+        }
 }

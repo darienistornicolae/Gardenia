@@ -45,7 +45,7 @@ struct PlantView: View {
                 }
                 
             }
-            .navigationTitle(plant.commonName)
+            .navigationTitle(viewModel.plantDetailsModel?.commonName ?? "No plant name")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 viewModel.fetchPlantDetails(id: plant.id)
