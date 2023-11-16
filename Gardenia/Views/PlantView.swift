@@ -37,10 +37,12 @@ struct PlantView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             cardView
+                            dimensionsCard
                             watering
                         }
                         .padding()
                         Spacer()
+                        
                     }
                 }
                 
@@ -92,10 +94,9 @@ fileprivate extension PlantView {
         .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
 
     }
-    
     var watering: some View {
+        
         HStack {
-            
             VStack(alignment: .leading) {
                 HStack {
                     Image(systemName: "camera.macro")
@@ -121,5 +122,35 @@ fileprivate extension PlantView {
         .cornerRadius(10)
         .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
 
+    }
+    
+    var dimensionsCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+                   Text("Dimensions")
+                       .font(.title)
+                       .fontWeight(.bold)
+                   
+            KeyValueView(key: "Type", value: viewModel.plantDetailsModel?.dimensions.type ?? "Unknown type")
+                       KeyValueView(key: "Min Value", value: "\(viewModel.plantDetailsModel?.dimensions.minValue ?? 0)")
+                       KeyValueView(key: "Max Value", value: "\(viewModel.plantDetailsModel?.dimensions.maxValue ?? 0)")
+                       KeyValueView(key: "Unit", value: viewModel.plantDetailsModel?.dimensions.unit ?? "Unknown unit")
+        }
+        .padding(.all, 8) // Add padding to the HStack
+        .background(colorScheme == .dark ? Color.cardDetailView : Color.white)
+        .cornerRadius(10)
+        .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
+    }
+}
+
+struct KeyValueView: View {
+    var key: String
+    var value: String
+    
+    var body: some View {
+        HStack {
+            Text(key)
+            Spacer()
+            Text(value)
+        }
     }
 }

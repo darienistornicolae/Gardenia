@@ -20,6 +20,7 @@ struct SignUpView: View {
     init(viewModel: @autoclosure @escaping () -> SignUpViewModel) {
         
         self._viewModel = StateObject(wrappedValue: viewModel())
+        
        
     }
    
@@ -35,7 +36,7 @@ struct SignUpView: View {
                 }
                 VStack(spacing: -5) {
                     Spacer()
-                    Text("Get started, create an account!")
+                    Text("Create an account")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.bottom)

@@ -14,14 +14,14 @@ struct GardenCardView: View {
         HStack {
             
             VStack(alignment: .leading, spacing: 8) {
-                Text("garden.gardenName")
+                Text(garden.gardenName)
                     .font(.headline)
                     .foregroundColor(Color.primary)
                 
                 HStack {
                     Image(systemName: "leaf.fill")
                         .foregroundColor(.green)
-                    Text("22 plants")
+                    Text("\(garden.plants.total) plants")
                         .font(.subheadline)
                         .foregroundColor(Color.secondary)
                     

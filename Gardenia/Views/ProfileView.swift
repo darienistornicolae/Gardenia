@@ -58,7 +58,15 @@ struct ProfileView: View {
                                 print("Password Reset")
                             }
                         } label: {
-                            SettingsRowView(imageName: "xmark.circle.fill", title: "Reset Password", tintColor: Color.red,  actionToggle: nil)
+                            SettingsRowView(imageName: "rectangle.and.pencil.and.ellipsis", title: "Reset Password", tintColor: Color.red,  actionToggle: nil)
+                        }
+                        
+                        Button {
+                            Task {
+                                try await manager.deleteUser()
+                            }
+                        } label: {
+                            SettingsRowView(imageName: "xmark.circle.fill", title: "Delete account", tintColor: Color.red, actionToggle: nil)
                         }
                     }
                 }

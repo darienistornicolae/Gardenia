@@ -26,7 +26,7 @@ struct PlantDetailsModel: Codable {
 //    var depthWaterRequirement: [DepthWaterRequirement]
 //    var volumeWaterRequirement: VolumeWaterRequirement
     var wateringPeriod: String?
-    var wateringGeneralBenchmark: WateringGeneralBenchmark
+    var wateringGeneralBenchmark: WateringGeneralBenchmark?
     var plantAnatomy: [PlantAnatomy]
     var sunlight: [String]
     var pruningMonth: [String]
@@ -72,14 +72,14 @@ struct PlantDetailsModel: Codable {
         case scientificName = "scientific_name"
         case otherName = "other_name"
         case family
-        case origin = "origin"
-        case type = "type"
-        case dimension = "dimension"
-        case dimensions = "dimensions"
-        case cycle = "cycle"
-        case attracts = "attracts"
-        case propagation = "propagation"
-        case hardiness = "hardiness"
+        case origin
+        case type
+        case dimension
+        case dimensions
+        case cycle
+        case attracts
+        case propagation
+        case hardiness
         case hardinessLocation = "hardiness_location"
         case watering = "watering"
 //        case depthWaterRequirement = "depth_water_requirement"
@@ -132,8 +132,8 @@ struct PlantDetailsModel: Codable {
 
 // MARK: - PlantAnatomy
 struct PlantAnatomy: Codable {
-    var part: String
-    var color: [String]
+    var part: String?
+    var color: [String]?
 }
 
 // MARK: - DefaultImage
@@ -159,15 +159,15 @@ struct DefaultPlantImage: Codable {
     }
 }
 struct VolumeWaterRequirement: Codable {
-    let unit: String
-    let value: String
+    let unit: String?
+    let value: String?
 }
 // MARK: - Dimensions
 struct Dimensions: Codable {
-    var type: String
-    var minValue: Int
-    var maxValue: Int
-    var unit: String
+    var type: String?
+    var minValue: Int?
+    var maxValue: Int?
+    var unit: String?
 
     enum CodingKeys: String, CodingKey {
         case type = "type"
@@ -179,14 +179,14 @@ struct Dimensions: Codable {
 
 // MARK: - Hardiness
 struct Hardiness: Codable {
-    var min: String
-    var max: String
+    var min: String?
+    var max: String?
 }
 
 // MARK: - HardinessLocation
 struct HardinessLocation: Codable {
-    var fullurl: String
-    var fullIframe: String
+    var fullurl: String?
+    var fullIframe: String?
 
     enum CodingKeys: String, CodingKey {
         case fullurl = "full_url"
@@ -195,8 +195,8 @@ struct HardinessLocation: Codable {
 }
 // MARK: - DepthWaterRequirement
 struct DepthWaterRequirement: Codable {
-    var unit: String
-    var value: String
+    var unit: String?
+    var value: String?
 
     enum CodingKeys: String, CodingKey {
         case unit
@@ -206,15 +206,15 @@ struct DepthWaterRequirement: Codable {
 }
 
 struct PruningCount: Codable {
-    var amount: Int
-    var interval: String
+    var amount: Int?
+    var interval: String?
 
 }
 
 // MARK: - WateringGeneralBenchmark
 struct WateringGeneralBenchmark: Codable {
-    var value: String
-    var unit: String
+    var value: String?
+    var unit: String?
 }
 
 

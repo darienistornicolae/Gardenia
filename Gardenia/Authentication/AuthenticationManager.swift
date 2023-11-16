@@ -47,6 +47,30 @@ final class AuthenticationManager: ObservableObject {
         }
     }
     
+    func deleteUser() async throws {
+            guard let currentUser = currentUser, let userSession = userSession else {
+                print("ERROR: User is not signed in")
+                return
+            }
+
+            do {
+                // Delete user account from Firebase Authentication
+                try await userSession.delete()
+
+                // Delete user data from Firestore
+                let userDocumentRef = dataBase.collection("users").document(currentUser.id)
+                try await userDocumentRef.delete()
+
+                // Clear local user data
+                self.userSession = nil
+                self.currentUser = nil
+                self.currentGarden = nil
+            } catch {
+                print("ERROR: Deleting account failed. \(error.localizedDescription)")
+                throw error
+            }
+        }
+    
     func createUser(email: String, password: String, fullName: String) async throws {
         do {
            
@@ -94,8 +118,6 @@ final class AuthenticationManager: ObservableObject {
             print("ERROR: The user couldn't sign out. \(error.localizedDescription)")
         }
     }
-    
-    //MARK: Garden
     
     
 
