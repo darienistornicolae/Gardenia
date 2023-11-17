@@ -36,9 +36,10 @@ struct PlantView: View {
                         Divider()
                             .padding()
                         VStack(alignment: .leading) {
-                            cardView
+                            namesCard
                             dimensionsCard
                             watering
+                            descriptionCard
                         }
                         .padding()
                         Spacer()
@@ -63,7 +64,7 @@ struct PlantView: View {
 }
 
 fileprivate extension PlantView {
-    var cardView: some View {
+    var namesCard: some View {
         HStack {
             VStack(alignment: .leading) {
                 VStack {
@@ -126,9 +127,14 @@ fileprivate extension PlantView {
     
     var dimensionsCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-                   Text("Dimensions")
-                       .font(.title)
-                       .fontWeight(.bold)
+            HStack {
+                Image(systemName: "ruler.fill")
+                    .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
+                    .font(.title)
+                Text("Dimensions")
+                    .font(.title)
+                    .fontWeight(.bold)
+            }
                    
             KeyValueView(key: "Type", value: viewModel.plantDetailsModel?.dimensions.type ?? "Unknown type")
                        KeyValueView(key: "Min Value", value: "\(viewModel.plantDetailsModel?.dimensions.minValue ?? 0)")
@@ -139,6 +145,34 @@ fileprivate extension PlantView {
         .background(colorScheme == .dark ? Color.cardDetailView : Color.white)
         .cornerRadius(10)
         .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
+    }
+    
+    var descriptionCard: some View {
+        
+        HStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(systemName: "newspaper.fill")
+                        .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
+                        .font(.title)
+                    VStack {
+                        Text("Description")
+                            .font(.title.bold())
+                            
+                    }
+                }
+                .padding(.bottom)
+                Text(viewModel.plantDetailsModel?.description ?? "No Data")
+            }
+            .font(.headline)
+            .multilineTextAlignment(.leading)
+            .padding(5)
+        }
+        .padding(.all, 8) // Add padding to the HStack
+        .background(colorScheme == .dark ? Color.cardDetailView : Color.white)
+        .cornerRadius(10)
+        .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
+
     }
 }
 
