@@ -65,7 +65,7 @@ struct PlantDetailsModel: Codable {
     var description: String
     var defaultImage: DefaultPlantImage?
     var otherImages: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case commonName = "common_name"

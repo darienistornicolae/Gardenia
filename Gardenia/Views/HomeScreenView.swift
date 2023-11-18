@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeScreenView: View {
     var body: some View {
             TabView {
-                GardenListView()
+                GardenListView(viewModel: GardenListViewModel())
                     .tabItem {
                         Image(systemName: "camera.macro")
                         Text("Garden")

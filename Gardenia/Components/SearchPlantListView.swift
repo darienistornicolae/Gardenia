@@ -16,6 +16,10 @@ struct SearchPlantListView: View {
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     @StateObject var viewModel = AddPlantOnboardingViewModel()
     
+    init(viewModel: @autoclosure @escaping () -> AddPlantOnboardingViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
+       
+    }
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
@@ -30,6 +34,7 @@ struct SearchPlantListView: View {
                             try? await garden.addPlantToGarden(gardenId: garden.currentGarden?.gardenId ?? "", plant: plant, isPlantAdded: true)
                             showAlert = true
                             addedPlantName = plant.commonName
+                            
                             
                         }
                     }) {
@@ -88,7 +93,7 @@ struct SearchPlantListView: View {
 }
 
 #Preview {
-    SearchPlantListView()
+    SearchPlantListView(viewModel: AddPlantOnboardingViewModel())
 }
 
 fileprivate extension SearchPlantListView {

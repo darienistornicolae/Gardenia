@@ -39,6 +39,8 @@ struct CreateGardenOnboardingView: View {
                         .foregroundColor(Color(colorScheme == .dark ? .white : .black))
                     Spacer()
                     
+                    
+                    
                     Button(action: {
                         Task {
                             try await garden.createGarden(gardenName:viewModel.gardenName, plants: [Datum]())

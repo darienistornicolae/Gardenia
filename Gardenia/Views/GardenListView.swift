@@ -13,6 +13,12 @@ struct GardenListView: View {
     
     @StateObject var viewModel = GardenListViewModel()
     @StateObject var userManager = AuthenticationManager()
+    
+    init(viewModel: @autoclosure @escaping () -> GardenListViewModel) {
+        
+        self._viewModel = StateObject(wrappedValue: viewModel())
+       
+    }
     var body: some View {
         NavigationView{
             VStack {
@@ -31,6 +37,7 @@ struct GardenListView: View {
                     self.viewModel.fetchGarden(forUserID: userId)
                 }
             }
+            
         }
         
     }
@@ -40,6 +47,6 @@ struct GardenListView: View {
 
 struct GardenView_Previews: PreviewProvider {
     static var previews: some View {
-        GardenListView()
+        GardenListView(viewModel: GardenListViewModel())
     }
 }

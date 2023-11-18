@@ -68,16 +68,16 @@ struct SignUpView: View {
                     }
                     
                     Button {
+                        
                         Task {
                             do {
                                 try await user.createUser(email:viewModel.email, password:viewModel.password, fullName: viewModel.fullName)
                                 self.isOnboardingCompleted = false
-                                //dismiss()
+                                
                             } catch {
                                 print("Error creating user: \(error.localizedDescription)")
                             }
                         }
-                        //
                     } label: {
                         Text("Sign In")
                             .foregroundColor(.white)

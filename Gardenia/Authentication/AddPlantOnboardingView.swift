@@ -37,7 +37,7 @@ struct AddPlantOnboardingView: View {
                         .font(.title2)
                         .foregroundColor(.white)
                     
-                    SearchPlantListView()
+                    SearchPlantListView(viewModel: AddPlantOnboardingViewModel())
                     
                     Spacer()
                 }
