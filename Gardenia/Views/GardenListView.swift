@@ -17,10 +17,6 @@ struct GardenListView: View {
         NavigationView{
             VStack {
                 List(viewModel.garden, id: \.gardenId) { garden in
-                    //Text(garden.gardenName)
-//                    NavigationLink(garden.gardenName, destination: {
-//                        GardenView(garden: garden)
-//                    })
                     NavigationLink {
                         GardenView(garden: garden)
                     } label: {

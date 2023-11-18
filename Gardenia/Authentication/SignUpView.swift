@@ -67,7 +67,6 @@ struct SignUpView: View {
                         }
                     }
                     
-                    
                     Button {
                         Task {
                             do {

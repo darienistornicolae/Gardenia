@@ -10,13 +10,12 @@ import SwiftUI
 struct CreateGardenOnboardingView: View {
     @StateObject var viewModel = CreateGardenOnboardingViewModel()
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var garden: AuthenticationManager
-    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
+    @EnvironmentObject private var garden: AuthenticationManager
+    @EnvironmentObject private var onboardingViewModel: OnboardingViewModel
     
     init(viewModel: @autoclosure @escaping () -> CreateGardenOnboardingViewModel) {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         self._viewModel = StateObject(wrappedValue: viewModel())
        
     }
@@ -58,7 +57,6 @@ struct CreateGardenOnboardingView: View {
                     
                 }
                 .navigationTitle("Hello gardner!")
-                .foregroundColor(.white)
                 .padding(20)
                 
 

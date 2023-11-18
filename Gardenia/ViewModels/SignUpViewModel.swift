@@ -13,27 +13,5 @@ class SignUpViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
     
-//    private let authManager =  AuthenticationManager()
-//    init() {
-//
-//    }
-//
-//    func createUser() async {
-//        do {
-//          try await authManager.createUser(email: email, password: password, fullName: fullName)
-//        } catch {
-//
-//        }
-//    }
     
-//    func signUp() async throws {
-//        guard !email.isEmpty, !password.isEmpty, fullName.isEmpty else {
-//            //Do a validation
-//            print("No email, password or name")
-//            return
-//        }
-//        let returnedUserData = try await authManager.createUser(email: email, password: password)
-//        print(returnedUserData)
-//
-//    }
 }

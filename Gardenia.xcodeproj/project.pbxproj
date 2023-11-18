@@ -83,11 +83,12 @@
 		016182CE2AE97191003E01C4 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 016182CD2AE97191003E01C4 /* FirebaseRemoteConfigSwift */; };
 		016182D02AE97191003E01C4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 016182CF2AE97191003E01C4 /* FirebaseStorage */; };
 		016182D22AE97191003E01C4 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 016182D12AE97191003E01C4 /* FirebaseStorageCombine-Community */; };
-		01692AD22B07E97F00294E80 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692AD12B07E97F00294E80 /* SearchView.swift */; };
 		01743B8F2B05602D00693BA6 /* GardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01743B8E2B05602D00693BA6 /* GardenViewModel.swift */; };
 		017F81462AFBC3DF0034062B /* PlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F81452AFBC3DF0034062B /* PlantView.swift */; };
 		017F81482AFBC8AF0034062B /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F81472AFBC8AF0034062B /* PlantViewModel.swift */; };
 		01A96A382B064846000E1214 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01A96A372B064846000E1214 /* Launch Screen.storyboard */; };
+		01C022C12B09062B006CBC66 /* SearchPlantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C022C02B09062B006CBC66 /* SearchPlantListView.swift */; };
+		01C022C32B0909A7006CBC66 /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C022C22B0909A7006CBC66 /* KeyValueView.swift */; };
 		01C312A72AEC0BD40073FD87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01C312A62AEC0BD40073FD87 /* GoogleService-Info.plist */; };
 		01C312A92AEC3D060073FD87 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C312A82AEC3D060073FD87 /* GardenView.swift */; };
 /* End PBXBuildFile section */
@@ -121,11 +122,12 @@
 		016182902AE970D4003E01C4 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		016182922AE970D5003E01C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		016182952AE970D5003E01C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		01692AD12B07E97F00294E80 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		01743B8E2B05602D00693BA6 /* GardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenViewModel.swift; sourceTree = "<group>"; };
 		017F81452AFBC3DF0034062B /* PlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantView.swift; sourceTree = "<group>"; };
 		017F81472AFBC8AF0034062B /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewModel.swift; sourceTree = "<group>"; };
 		01A96A372B064846000E1214 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		01C022C02B09062B006CBC66 /* SearchPlantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlantListView.swift; sourceTree = "<group>"; };
+		01C022C22B0909A7006CBC66 /* KeyValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		01C312A62AEC0BD40073FD87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01C312A82AEC3D060073FD87 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,8 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				014365002AEA8A8A00CE6E0B /* GardenListView.swift */,
-				01692AD12B07E97F00294E80 /* SearchView.swift */,
-				0145A4742AF3CDF40049366F /* GardenCardView.swift */,
 				014364FE2AEA8A8A00CE6E0B /* ProfileView.swift */,
 				014364FF2AEA8A8A00CE6E0B /* RootView.swift */,
 				016182902AE970D4003E01C4 /* HomeScreenView.swift */,
@@ -233,7 +233,6 @@
 			children = (
 				014365112AEA8AAF00CE6E0B /* SettingsRowView.swift */,
 				014365122AEA8AAF00CE6E0B /* ColorsExtensions.swift */,
-				014365132AEA8AAF00CE6E0B /* InputView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,6 +280,7 @@
 		0161828D2AE970D4003E01C4 /* Gardenia */ = {
 			isa = PBXGroup;
 			children = (
+				01C022BF2B0904F4006CBC66 /* Components */,
 				0143651A2AEA90AB00CE6E0B /* Authentication */,
 				014365172AEA8AB600CE6E0B /* Model */,
 				014365102AEA8AAF00CE6E0B /* Extensions */,
@@ -301,6 +301,17 @@
 				016182952AE970D5003E01C4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		01C022BF2B0904F4006CBC66 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0145A4742AF3CDF40049366F /* GardenCardView.swift */,
+				014365132AEA8AAF00CE6E0B /* InputView.swift */,
+				01C022C02B09062B006CBC66 /* SearchPlantListView.swift */,
+				01C022C22B0909A7006CBC66 /* KeyValueView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,7 +450,7 @@
 				014365252AEA90AC00CE6E0B /* SignUpView.swift in Sources */,
 				014365212AEA90AC00CE6E0B /* LoginView.swift in Sources */,
 				0143650F2AEA8A9900CE6E0B /* APICall.swift in Sources */,
-				01692AD22B07E97F00294E80 /* SearchView.swift in Sources */,
+				01C022C12B09062B006CBC66 /* SearchPlantListView.swift in Sources */,
 				014365022AEA8A8A00CE6E0B /* RootView.swift in Sources */,
 				0145A4752AF3CDF40049366F /* GardenCardView.swift in Sources */,
 				0143650D2AEA8A9900CE6E0B /* SignUpViewModel.swift in Sources */,
@@ -453,6 +464,7 @@
 				014365032AEA8A8A00CE6E0B /* GardenListView.swift in Sources */,
 				0161828F2AE970D4003E01C4 /* GardeniaApp.swift in Sources */,
 				013906A22AEBF17E00DDC21D /* GardenListViewModel.swift in Sources */,
+				01C022C32B0909A7006CBC66 /* KeyValueView.swift in Sources */,
 				01C312A92AEC3D060073FD87 /* GardenView.swift in Sources */,
 				017F81462AFBC3DF0034062B /* PlantView.swift in Sources */,
 				0143650C2AEA8A9900CE6E0B /* LoginViewModel.swift in Sources */,

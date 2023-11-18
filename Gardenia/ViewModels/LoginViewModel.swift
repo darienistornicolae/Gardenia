@@ -13,17 +13,5 @@ final class LoginViewModel: ObservableObject {
     
     @Published var emailInput: String = ""
     @Published var passwordInput: String = ""
-    
-//    private let authManager =  AuthenticationManager()
-//    
-//    init() {
-//        
-//    }
-//    func signIn() async {
-//        do {
-//            try await authManager.signIn(email: emailInput, password: passwordInput)
-//        } catch {
-//            
-//        }
-//    }
+
 }

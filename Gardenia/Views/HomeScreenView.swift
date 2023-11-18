@@ -9,30 +9,22 @@ import SwiftUI
 
 struct HomeScreenView: View {
     var body: some View {
-        TabView {
-            GardenListView()
-                .tabItem {
-                    Image(systemName: "camera.macro")
-                    Text("Garden")
-                }
-            
-            SearchView()
-                 .tabItem {
-                     Image(systemName: "magnifyingglass")
-                     Text("Search")
-                 }
-
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.fill")
-                    Text("Profile")
-                }
-            
-           
+            TabView {
+                GardenListView()
+                    .tabItem {
+                        Image(systemName: "camera.macro")
+                        Text("Garden")
+                    }
+                
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "person.fill")
+                        Text("Profile")
+                    }
+            }
         }
-        .padding()
     }
-}
+
 
 #Preview {
     HomeScreenView()
