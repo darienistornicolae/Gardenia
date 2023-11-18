@@ -15,12 +15,20 @@ struct HomeScreenView: View {
                     Image(systemName: "camera.macro")
                     Text("Garden")
                 }
+            
+            SearchView()
+                 .tabItem {
+                     Image(systemName: "magnifyingglass")
+                     Text("Search")
+                 }
 
             ProfileView()
                 .tabItem {
                     Image(systemName: "person.fill")
                     Text("Profile")
                 }
+            
+           
         }
         .padding()
     }

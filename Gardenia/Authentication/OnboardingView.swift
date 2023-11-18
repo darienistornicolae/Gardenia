@@ -21,19 +21,7 @@ struct OnboardingView: View {
         VStack {
             if viewModel.isOnboardingCompleted {
                 // Transition to the main content, which includes the TabView
-                TabView {
-                    GardenListView()
-                        .tabItem {
-                            Image(systemName: "camera.macro")
-                            Text("Garden")
-                        }
-
-                    ProfileView()
-                        .tabItem {
-                            Image(systemName: "person.fill")
-                            Text("Profile")
-                        }
-                }
+                HomeScreenView()
                 .transition(transition)
             } else {
                 // Continue showing the onboarding content
