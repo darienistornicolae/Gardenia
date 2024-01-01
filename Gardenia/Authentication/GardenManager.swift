@@ -42,7 +42,7 @@ extension AuthenticationManager {
         guard let currentUser = currentUser else {
             return
         }
-        
+        print()
         let userGardensRef = Firestore.firestore().collection("users").document(currentUser.id).collection("Gardens")
         let gardenDocument = userGardensRef.document(gardenId)
         

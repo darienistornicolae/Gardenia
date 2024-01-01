@@ -12,56 +12,14 @@ struct PlantDetailsModel: Codable {
     var commonName: String
     var scientificName: [String]
     var otherName: [String]
-    var family: String?
-    var origin: [String?]
-    var type: String
     var dimension: String
     var dimensions: Dimensions
     var cycle: String
-    var attracts: [String]
-    var propagation: [String]
-    var hardiness: Hardiness
-    var hardinessLocation: HardinessLocation
+    var sunlight: [Sunlight]
     var watering: String
 //    var depthWaterRequirement: [DepthWaterRequirement]
 //    var volumeWaterRequirement: VolumeWaterRequirement
-    var wateringPeriod: String?
-    var wateringGeneralBenchmark: WateringGeneralBenchmark?
-    var plantAnatomy: [PlantAnatomy]
-    var sunlight: [String]
-    var pruningMonth: [String]
 //    var pruningCount: PruningCount
-    var seeds: Int
-    var maintenance: String?
-    var careGuides: String
-    var soil: [String]
-    var growthRate: String
-    var droughtTolerant: Bool
-    var saltTolerant: Bool
-    var thorny: Bool
-    var invasive: Bool
-    var tropical: Bool
-    var indoor: Bool
-    var careLevel: String?
-    var pestSusceptibility: [String]
-    var pestSusceptibilityapi: String
-    var flowers: Bool
-    var floweringSeason: String?
-    var flowerColor: String
-    var cones: Bool
-    var fruits: Bool
-    var edibleFruit: Bool
-    var edibleFruitTasteProfile: String
-    var fruitNutritionalValue: String
-    var fruitColor: [String]
-    var harvestSeason: String?
-    var leaf: Bool
-    var leafColor: [String]
-    var edibleLeaf: Bool
-    var cuisine: Bool
-    var medicinal: Bool
-    var poisonousToHumans: Int
-    var poisonousToPets: Int
     var description: String
     var defaultImage: DefaultPlantImage?
     var otherImages: String
@@ -71,56 +29,11 @@ struct PlantDetailsModel: Codable {
         case commonName = "common_name"
         case scientificName = "scientific_name"
         case otherName = "other_name"
-        case family
-        case origin
-        case type
         case dimension
         case dimensions
         case cycle
-        case attracts
-        case propagation
-        case hardiness
-        case hardinessLocation = "hardiness_location"
-        case watering = "watering"
-//        case depthWaterRequirement = "depth_water_requirement"
-//        case volumeWaterRequirement = "volume_water_requirement"
-        case wateringPeriod = "watering_period"
-        case wateringGeneralBenchmark = "watering_general_benchmark"
-        case plantAnatomy = "plant_anatomy"
-        case sunlight = "sunlight"
-        case pruningMonth = "pruning_month"
-//        case pruningCount = "pruning_count"
-        case seeds = "seeds"
-        case maintenance = "maintenance"
-        case careGuides = "care-guides"
-        case soil = "soil"
-        case growthRate = "growth_rate"
-        case droughtTolerant = "drought_tolerant"
-        case saltTolerant = "salt_tolerant"
-        case thorny = "thorny"
-        case invasive = "invasive"
-        case tropical = "tropical"
-        case indoor = "indoor"
-        case careLevel = "care_level"
-        case pestSusceptibility = "pest_susceptibility"
-        case pestSusceptibilityapi = "pest_susceptibility_api"
-        case flowers = "flowers"
-        case floweringSeason = "flowering_season"
-        case flowerColor = "flower_color"
-        case cones = "cones"
-        case fruits = "fruits"
-        case edibleFruit = "edible_fruit"
-        case edibleFruitTasteProfile = "edible_fruit_taste_profile"
-        case fruitNutritionalValue = "fruit_nutritional_value"
-        case fruitColor = "fruit_color"
-        case harvestSeason
-        case leaf = "leaf"
-        case leafColor = "leaf_color"
-        case edibleLeaf = "edible_leaf"
-        case cuisine = "cuisine"
-        case medicinal = "medicinal"
-        case poisonousToHumans = "poisonous_to_humans"
-        case poisonousToPets = "poisonous_to_pets"
+        case watering
+        case sunlight
         case description = "description"
         case defaultImage = "default_image"
         case otherImages = "other_images"

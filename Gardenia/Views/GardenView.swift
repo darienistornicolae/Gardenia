@@ -21,6 +21,16 @@ struct GardenView: View {
                 
             }
         .navigationTitle(garden.gardenName)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink {
+                    SearchPlantView(viewModel: AddPlantOnboardingViewModel())
+                } label: {
+                    Image(systemName: "plus")
+                }
+
+            }
+        }
     }
 }
 
@@ -35,7 +45,7 @@ fileprivate extension GardenView {
         List(garden.plants.data, id: \.id) { plant in
             NavigationLink {
                 
-                PlantView(plant: Datum(id: plant.id, commonName: plant.commonName, scientificName: plant.scientificName, otherName: plant.otherName, cycle: plant.cycle, watering: plant.watering, sunlight: plant.sunlight))
+                PlantView()
             } label: {
                 HStack {
                     if let image = viewModel.images[plant.id] {

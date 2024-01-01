@@ -86,12 +86,24 @@
 		01743B8F2B05602D00693BA6 /* GardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01743B8E2B05602D00693BA6 /* GardenViewModel.swift */; };
 		017F81462AFBC3DF0034062B /* PlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F81452AFBC3DF0034062B /* PlantView.swift */; };
 		017F81482AFBC8AF0034062B /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F81472AFBC8AF0034062B /* PlantViewModel.swift */; };
+		0199BEDE2B0A27B4002DC5BB /* SearchPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199BEDD2B0A27B4002DC5BB /* SearchPlantView.swift */; };
 		01A96A382B064846000E1214 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01A96A372B064846000E1214 /* Launch Screen.storyboard */; };
 		01C022C12B09062B006CBC66 /* SearchPlantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C022C02B09062B006CBC66 /* SearchPlantListView.swift */; };
 		01C022C32B0909A7006CBC66 /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C022C22B0909A7006CBC66 /* KeyValueView.swift */; };
 		01C312A72AEC0BD40073FD87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01C312A62AEC0BD40073FD87 /* GoogleService-Info.plist */; };
 		01C312A92AEC3D060073FD87 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C312A82AEC3D060073FD87 /* GardenView.swift */; };
+		01E65B992B0B9C2100B661F5 /* AddGardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B982B0B9C2100B661F5 /* AddGardenView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		018551442B13AA0F00DD9A56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 016182832AE970D4003E01C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0161828A2AE970D4003E01C4;
+			remoteInfo = Gardenia;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		011D22FA2B03C03700E30231 /* PlantDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsModel.swift; sourceTree = "<group>"; };
@@ -125,11 +137,14 @@
 		01743B8E2B05602D00693BA6 /* GardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenViewModel.swift; sourceTree = "<group>"; };
 		017F81452AFBC3DF0034062B /* PlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantView.swift; sourceTree = "<group>"; };
 		017F81472AFBC8AF0034062B /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewModel.swift; sourceTree = "<group>"; };
+		018551402B13AA0F00DD9A56 /* GardeniaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GardeniaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0199BEDD2B0A27B4002DC5BB /* SearchPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlantView.swift; sourceTree = "<group>"; };
 		01A96A372B064846000E1214 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		01C022C02B09062B006CBC66 /* SearchPlantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlantListView.swift; sourceTree = "<group>"; };
 		01C022C22B0909A7006CBC66 /* KeyValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		01C312A62AEC0BD40073FD87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01C312A82AEC3D060073FD87 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
+		01E65B982B0B9C2100B661F5 /* AddGardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGardenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +204,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0185513D2B13AA0F00DD9A56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -202,6 +224,8 @@
 				01C312A82AEC3D060073FD87 /* GardenView.swift */,
 				017F81452AFBC3DF0034062B /* PlantView.swift */,
 				01A96A372B064846000E1214 /* Launch Screen.storyboard */,
+				0199BEDD2B0A27B4002DC5BB /* SearchPlantView.swift */,
+				01E65B982B0B9C2100B661F5 /* AddGardenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				0161828B2AE970D4003E01C4 /* Gardenia.app */,
+				018551402B13AA0F00DD9A56 /* GardeniaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -385,6 +410,24 @@
 			productReference = 0161828B2AE970D4003E01C4 /* Gardenia.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0185513F2B13AA0F00DD9A56 /* GardeniaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 018551482B13AA0F00DD9A56 /* Build configuration list for PBXNativeTarget "GardeniaTests" */;
+			buildPhases = (
+				0185513C2B13AA0F00DD9A56 /* Sources */,
+				0185513D2B13AA0F00DD9A56 /* Frameworks */,
+				0185513E2B13AA0F00DD9A56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				018551452B13AA0F00DD9A56 /* PBXTargetDependency */,
+			);
+			name = GardeniaTests;
+			productName = GardeniaTests;
+			productReference = 018551402B13AA0F00DD9A56 /* GardeniaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -397,6 +440,10 @@
 				TargetAttributes = {
 					0161828A2AE970D4003E01C4 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					0185513F2B13AA0F00DD9A56 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 0161828A2AE970D4003E01C4;
 					};
 				};
 			};
@@ -417,6 +464,7 @@
 			projectRoot = "";
 			targets = (
 				0161828A2AE970D4003E01C4 /* Gardenia */,
+				0185513F2B13AA0F00DD9A56 /* GardeniaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -433,6 +481,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0185513E2B13AA0F00DD9A56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -440,6 +495,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0199BEDE2B0A27B4002DC5BB /* SearchPlantView.swift in Sources */,
+				01E65B992B0B9C2100B661F5 /* AddGardenView.swift in Sources */,
 				014365232AEA90AC00CE6E0B /* CreateGardenOnboardingView.swift in Sources */,
 				014365162AEA8AAF00CE6E0B /* InputView.swift in Sources */,
 				0127D02D2AF7D70500D86E8E /* GardenManager.swift in Sources */,
@@ -474,7 +531,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0185513C2B13AA0F00DD9A56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		018551452B13AA0F00DD9A56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0161828A2AE970D4003E01C4 /* Gardenia */;
+			targetProxy = 018551442B13AA0F00DD9A56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		016182972AE970D5003E01C4 /* Debug */ = {
@@ -664,6 +736,44 @@
 			};
 			name = Release;
 		};
+		018551462B13AA0F00DD9A56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V975Z3G3HV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dnn.GardeniaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gardenia.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gardenia";
+			};
+			name = Debug;
+		};
+		018551472B13AA0F00DD9A56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V975Z3G3HV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dnn.GardeniaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gardenia.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gardenia";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -681,6 +791,15 @@
 			buildConfigurations = (
 				0161829A2AE970D5003E01C4 /* Debug */,
 				0161829B2AE970D5003E01C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		018551482B13AA0F00DD9A56 /* Build configuration list for PBXNativeTarget "GardeniaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				018551462B13AA0F00DD9A56 /* Debug */,
+				018551472B13AA0F00DD9A56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

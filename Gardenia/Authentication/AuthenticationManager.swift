@@ -29,10 +29,37 @@ final class AuthenticationManager: ObservableObject {
         Task {
             do {
                 await fetchUser()   
-                
+               //await fetchUserGardens(selectedGarden: currentGarden)
             }
         }
     }
+    
+    func fetchUserGardens(selectedGarden: Garden?) async {
+            guard let userId = currentUser?.id else {
+                print("ERROR: Current user is nil")
+                return
+            }
+
+            do {
+                let gardenSnapshot = try await dataBase.collection("users").document(userId).collection("Gardens").getDocuments()
+
+                let gardens = gardenSnapshot.documents.compactMap { document -> Garden? in
+                    try? document.data(as: Garden.self)
+                }
+
+                if let selectedGarden = selectedGarden {
+                    self.currentGarden = selectedGarden
+                } else if let firstGarden = gardens.first {
+                    self.currentGarden = firstGarden
+                } else {
+                    print("INFO: User has no gardens")
+                }
+            } catch {
+                print("ERROR: Failed to fetch user gardens - \(error.localizedDescription)")
+            }
+        }
+
+
     
     //MARK: User
     

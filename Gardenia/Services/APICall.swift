@@ -71,7 +71,7 @@ class APICall: ObservableObject {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let decodedData = try JSONDecoder().decode(PlantDetailsModel.self, from: data)
-            print(decodedData)
+           // print(decodedData)
             return decodedData
             
         } catch let networkError as NSError {

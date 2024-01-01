@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlantView: View {
-    let plant: Datum
+    var plant: PlantDetailsModel?
     
     @StateObject var viewModel = PlantViewModel()
     @Environment(\.colorScheme) var colorScheme
@@ -20,7 +20,7 @@ struct PlantView: View {
                     Color.darkModeColor.ignoresSafeArea(.all)
                 }
                 VStack {
-                    if let image = viewModel.plantImage[plant.id] {
+                    if let image = viewModel.plantImage[plant?.id ?? 1] {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -36,9 +36,6 @@ struct PlantView: View {
                     Divider()
                         .padding()
                     VStack(alignment: .leading) {
-                        namesCard
-                        dimensionsCard
-                        watering
                         descriptionCard
                     }
                     .padding()
@@ -52,125 +49,103 @@ struct PlantView: View {
         .navigationTitle(viewModel.plantDetailsModel?.commonName ?? "No plant name")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            viewModel.fetchPlantDetails(id: plant.id)
-            viewModel.loadImages(for: [plant])
+            viewModel.fetchPlantDetails(id: plant?.id ?? 1)
+            viewModel.loadImages(for: [Datum]())
         }
     }
 }
 
 
-#Preview {
-    PlantView(plant: Datum(id: 1, commonName: "Rose", scientificName: ["Black Rose"], otherName: ["Bleah, Crazi"], cycle: Cycle.herbaceousPerennial, watering: Watering.average, sunlight: Sunlight.fullSun))
-}
+//#Preview {
+//    PlantView(plant: Datum(id: 1, commonName: "Rose", scientificName: ["Black Rose"], otherName: ["Bleah, Crazi"], cycle: Cycle.herbaceousPerennial, watering: Watering.average, sunlight: Sunlight.fullSun))
+//}
 
 fileprivate extension PlantView {
-    var namesCard: some View {
+    var descriptionCard: some View {
         HStack {
             VStack(alignment: .leading) {
-                VStack {
+                
+                VStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "person.fill.questionmark")
                             .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
                             .font(.title)
+                        Text("Names")
+                            .font(.title.bold())
+                    }
+                    Text("Common Name: \(viewModel.plantDetailsModel?.commonName ?? "No common name")")
+                    Text("Other Name: \(viewModel.plantDetailsModel?.otherName.first ?? "No other name")")
+                    Text("Scientific Name: \(viewModel.plantDetailsModel?.scientificName.first ?? "No other name")")
+                }
+                .font(.headline)
+                .multilineTextAlignment(.leading)
+                .padding(5)
+                
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "ruler.fill")
+                            .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
+                            .font(.title)
+                        Text("Dimensions")
+                            .font(.title)
+                            .fontWeight(.bold)
+                    }
+                    
+                    KeyValueView(key: "Type", value: viewModel.plantDetailsModel?.dimensions.type ?? "Unknown type")
+                    KeyValueView(key: "Min Value", value: "\(viewModel.plantDetailsModel?.dimensions.minValue ?? 0)")
+                    KeyValueView(key: "Max Value", value: "\(viewModel.plantDetailsModel?.dimensions.maxValue ?? 0)")
+                    KeyValueView(key: "Unit", value: viewModel.plantDetailsModel?.dimensions.unit ?? "Unknown unit")
+                }
+                .font(.headline)
+                .multilineTextAlignment(.leading)
+                .padding(5)
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "camera.macro")
+                            .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
+                            .font(.title)
                         VStack {
-                            Text("Names")
+                            Text("Care")
+                                .font(.title.bold())
+                            
+                        }
+                    }
+                    KeyValueView(key: "Watering Frequency", value: viewModel.plantDetailsModel?.watering ?? "No Data")
+                    KeyValueView(key: "Cycle Type", value: viewModel.plantDetailsModel?.watering ?? "No Data")
+                   //x KeyValueView(key: "Type of ligh", value: viewModel.plantDetailsModel?.sunlight.first ?? "No Data")
+                    
+                }
+                .font(.headline)
+                .multilineTextAlignment(.leading)
+                .padding(5)
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "newspaper.fill")
+                            .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
+                            .font(.title)
+                        VStack {
+                            Text("Description")
                                 .font(.title.bold())
                             
                         }
                     }
                     .padding(.bottom)
+                    KeyValueView(key: "", value: viewModel.plantDetailsModel?.description ?? "No Data")
+                    //Text(viewModel.plantDetailsModel?.description ?? "No Data")
                 }
-                Text("Common Name: \(viewModel.plantDetailsModel?.commonName ?? "No common name")")
-                Text("Other Name: \(viewModel.plantDetailsModel?.otherName.first ?? "No other name")")
-                Text("Scientific Name: \(viewModel.plantDetailsModel?.scientificName.first ?? "No other name")")
-                
+                .font(.headline)
+                .multilineTextAlignment(.leading)
+                .padding(5)
             }
             .font(.headline)
             .multilineTextAlignment(.leading)
             .padding(5)
-        }
-        .padding(.all, 8) // Add padding to the HStack
-        .background(colorScheme == .dark ? Color.cardDetailView : Color.white)
-        .cornerRadius(10)
-        .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
-        
-    }
-    var watering: some View {
-        
-        HStack {
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "camera.macro")
-                        .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
-                        .font(.title)
-                    VStack {
-                        Text("Care")
-                            .font(.title.bold())
-                        
-                    }
-                }
-                .padding(.bottom)
-                KeyValueView(key: "Watering Frequency", value: viewModel.plantDetailsModel?.watering ?? "No Data")
-                KeyValueView(key: "Cycle Type", value: viewModel.plantDetailsModel?.watering ?? "No Data")
-                KeyValueView(key: "Type of ligh", value: viewModel.plantDetailsModel?.sunlight.first ?? "No Data")
-                
-            }
-            .font(.headline)
-            .multilineTextAlignment(.leading)
-            .padding(5)
-        }
-        .padding(.all, 8) // Add padding to the HStack
-        .background(colorScheme == .dark ? Color.cardDetailView : Color.white)
-        .cornerRadius(10)
-        .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
-        
-    }
-    
-    var dimensionsCard: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Image(systemName: "ruler.fill")
-                    .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
-                    .font(.title)
-                Text("Dimensions")
-                    .font(.title)
-                    .fontWeight(.bold)
-            }
             
-            KeyValueView(key: "Type", value: viewModel.plantDetailsModel?.dimensions.type ?? "Unknown type")
-            KeyValueView(key: "Min Value", value: "\(viewModel.plantDetailsModel?.dimensions.minValue ?? 0)")
-            KeyValueView(key: "Max Value", value: "\(viewModel.plantDetailsModel?.dimensions.maxValue ?? 0)")
-            KeyValueView(key: "Unit", value: viewModel.plantDetailsModel?.dimensions.unit ?? "Unknown unit")
         }
-        .padding(.all, 8) // Add padding to the HStack
-        .background(colorScheme == .dark ? Color.cardDetailView : Color.white)
-        .cornerRadius(10)
-        .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
-    }
-    
-    var descriptionCard: some View {
-        
-        HStack {
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "newspaper.fill")
-                        .foregroundColor(colorScheme == .dark ? Color.white : Color.green)
-                        .font(.title)
-                    VStack {
-                        Text("Description")
-                            .font(.title.bold())
-                        
-                    }
-                }
-                .padding(.bottom)
-                KeyValueView(key: "", value: viewModel.plantDetailsModel?.description ?? "No Data")
-                //Text(viewModel.plantDetailsModel?.description ?? "No Data")
-            }
-            .font(.headline)
-            .multilineTextAlignment(.leading)
-            .padding(5)
-        }
-        .padding(.all, 8) // Add padding to the HStack
+        .padding(.all, 8)
         .background(colorScheme == .dark ? Color.cardDetailView : Color.white)
         .cornerRadius(10)
         .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)

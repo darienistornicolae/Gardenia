@@ -27,12 +27,11 @@ struct GardenCardView: View {
                     
                 }
             }
-            .padding(.leading, 8) // Add padding to the VStack
+            .padding(.leading, 8) 
             
             Spacer()
         }
-        .padding(.all, 8) // Add padding to the HStack
-        //.background(Color(.systemBackground))
+        .padding(.all, 8)
         .cornerRadius(10)
         .shadow(color: colorScheme == .dark ? Color(.systemGray4) : Color(.systemGray4).opacity(0.4), radius: 5, x: 0, y: 2)
     }
