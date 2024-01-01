@@ -45,7 +45,7 @@ fileprivate extension GardenView {
         List(garden.plants.data, id: \.id) { plant in
             NavigationLink {
                 
-                PlantView()
+                PlantView(plant: PlantDetailsModel(id: plant.id, commonName: plant.commonName, scientificName: plant.scientificName, otherName: plant.otherName, dimension: "", dimensions: Dimensions(), cycle: plant.cycle.rawValue, sunlight: [plant.sunlight], watering: plant.watering.rawValue, description: "", otherImages: ""))
             } label: {
                 HStack {
                     if let image = viewModel.images[plant.id] {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlantView: View {
-    var plant: PlantDetailsModel?
+    var plant: PlantDetailsModel
     
     @StateObject var viewModel = PlantViewModel()
     @Environment(\.colorScheme) var colorScheme
@@ -20,7 +20,7 @@ struct PlantView: View {
                     Color.darkModeColor.ignoresSafeArea(.all)
                 }
                 VStack {
-                    if let image = viewModel.plantImage[plant?.id ?? 1] {
+                    if let image = viewModel.plantImage[plant.id] {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -49,7 +49,7 @@ struct PlantView: View {
         .navigationTitle(viewModel.plantDetailsModel?.commonName ?? "No plant name")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            viewModel.fetchPlantDetails(id: plant?.id ?? 1)
+            viewModel.fetchPlantDetails(id: plant.id)
             viewModel.loadImages(for: [Datum]())
         }
     }
@@ -114,7 +114,7 @@ fileprivate extension PlantView {
                     }
                     KeyValueView(key: "Watering Frequency", value: viewModel.plantDetailsModel?.watering ?? "No Data")
                     KeyValueView(key: "Cycle Type", value: viewModel.plantDetailsModel?.watering ?? "No Data")
-                   //x KeyValueView(key: "Type of ligh", value: viewModel.plantDetailsModel?.sunlight.first ?? "No Data")
+                   // KeyValueView(key: "Type of ligh", value: viewModel.plantDetailsModel?.sunlight.first ?? "No Data")
                     
                 }
                 .font(.headline)
@@ -134,7 +134,7 @@ fileprivate extension PlantView {
                     }
                     .padding(.bottom)
                     KeyValueView(key: "", value: viewModel.plantDetailsModel?.description ?? "No Data")
-                    //Text(viewModel.plantDetailsModel?.description ?? "No Data")
+                    Text(viewModel.plantDetailsModel?.description ?? "No Data")
                 }
                 .font(.headline)
                 .multilineTextAlignment(.leading)
