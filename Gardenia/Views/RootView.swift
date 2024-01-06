@@ -33,7 +33,6 @@ struct RootView: View {
             }
         }
         .onAppear {
-            // Load onboarding statuses from the dictionary when the view appears
             if let currentUser = authViewModel.userSession?.uid {
                 let userId = currentUser
                 if let status = onboardingStatus[userId] {
