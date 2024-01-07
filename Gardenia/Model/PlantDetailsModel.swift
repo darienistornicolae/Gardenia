@@ -15,7 +15,7 @@ struct PlantDetailsModel: Codable {
     var dimension: String
     var dimensions: Dimensions
     var cycle: String
-    var sunlight: [Sunlight]
+  //  var sunlight: [Sunlight]?
     var watering: String
 //    var depthWaterRequirement: [DepthWaterRequirement]
 //    var volumeWaterRequirement: VolumeWaterRequirement
@@ -33,7 +33,7 @@ struct PlantDetailsModel: Codable {
         case dimensions
         case cycle
         case watering
-        case sunlight
+      //  case sunlight
         case description = "description"
         case defaultImage = "default_image"
         case otherImages = "other_images"
